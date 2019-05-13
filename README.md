@@ -1,5 +1,7 @@
 # spa-starter-kit
-Version: 1.0.0
+Version: 0.0.1
+
+[![CircleCI](https://circleci.com/gh/7s4r/spa-starter-kit/tree/master.svg?style=svg)](https://circleci.com/gh/7s4r/spa-starter-kit/tree/master)
 
 The most advanced server less starter kit for a single page application. It's bootstrapped with:
 * [React](https://reactjs.org/docs/getting-started.html) for building rich UI interface
