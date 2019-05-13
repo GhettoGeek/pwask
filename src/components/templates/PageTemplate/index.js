@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled, { css, ThemeProvider } from 'styled-components'
-import { injectGlobals, ifThen } from '../../../utils/style'
-import defaultTheme, { resets } from '../../themes/default'
-
-// injectGlobals([resets])
+import styled, { css } from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,8 +11,8 @@ const Wrapper = styled.div`
   background-color: #eee;
 `
 
-const Header = styled.div`${({ loaded }) => css`
-  ${ifThen(loaded, 'position: fixed', 'position: absolute')};
+const Header = styled.div`${() => css`
+  position: absolute;
   left: 0;
   top: 0;
   width: 100%;
@@ -54,19 +50,17 @@ class PageTemplate extends Component {
     const { loaded } = this.state
 
     return (
-      <ThemeProvider theme={defaultTheme}>
-        <Wrapper {...props}>
-          <Header {...{ ...props, loaded }}>
-            {header}
-          </Header>
-          <Content>
-            {children}
-          </Content>
-          <Footer>
-            {footer}
-          </Footer>
-        </Wrapper>
-      </ThemeProvider>
+      <Wrapper {...props}>
+        <Header {...{ ...props, loaded }}>
+          {header}
+        </Header>
+        <Content>
+          {children}
+        </Content>
+        <Footer>
+          {footer}
+        </Footer>
+      </Wrapper>
     )
   }
 }

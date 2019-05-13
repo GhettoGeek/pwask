@@ -17,22 +17,22 @@ Based on [Atomic Design](http://atomicdesign.bradfrost.com/chapter-2/) methodolo
 
 To get started, first install all the necessary dependencies.
 ```
-npm install or yarn
+yarn install
 ```
 
 Start the development server (changes will now update live in browser)
 ```
-npm run dev
+yarn dev
 ```
 
 Don't forget to add [ESLint](https://eslint.org/docs/user-guide/getting-started) to your IDE or run the following command before commiting:
 ```
-npm run lint
+yarn lint
 ```
 
 Build files for production
 ```
-npm run build
+yarn build
 ```
 
 To view the project, go to: [http://localhost:1234/](http://localhost:1234/)

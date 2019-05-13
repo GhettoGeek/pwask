@@ -3,8 +3,10 @@ import renderer from 'react-test-renderer'
 
 import Footer from '.'
 
-test('Link changes the class when hovered', () => {
-  const component = renderer.create(<Footer />)
-  const tree = component.toJSON()
-  expect(tree).toMatchSnapshot()
+describe('Footer', () => {
+  it('Should render the component as expected', () => {
+    const component = renderer.create(<Footer />)
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })
