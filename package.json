@@ -29,7 +29,7 @@
     "test:e2e": "testcafe chrome tests/*.js",
     "test:e2e:ci": "testcafe \"firefox:headless\" tests/*.js --app \"npm run serve\"",
     "build": "parcel build index.html",
-    "start": "serve"
+    "start": "serve -s dist"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
