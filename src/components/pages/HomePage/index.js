@@ -1,14 +1,32 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { withTranslation } from 'react-i18next'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import { styled } from '../../../utils/style'
 
 import PageTemplate from '../../templates/PageTemplate'
-import Header from '../../organisms/Header'
-import Footer from '../../organisms/Footer'
 import Hero from '../../organisms/Hero'
 
-const HomePage = () => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
+const MainTitle = styled(Typography)({
+  textAlign: 'center',
+  fontSize: '30px',
+  fontWeight: 'bold',
+})
+
+const HomePage = ({ t }) => (
+  <PageTemplate>
+    <Grid container justify="center" alignItems="center" spacing={24}>
+      <Grid item xs={12}>
+        <MainTitle color="primary">{t('homePage.title')}</MainTitle>
+      </Grid>
+    </Grid>
     <Hero />
   </PageTemplate>
 )
 
-export default HomePage
+HomePage.propTypes = {
+  t: PropTypes.func.isRequired,
+}
+
+export default withTranslation()(HomePage)

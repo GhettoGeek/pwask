@@ -14,6 +14,8 @@
   "rules": {
     "semi": [2, "never"],
     "comma-dangle": [2, "always-multiline"],
-    "react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx"]}]
+    "react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx"]}],
+    "import/no-useless-path-segments": "off",
+    "react/no-array-index-key": "off"
   }
 }

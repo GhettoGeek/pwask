@@ -1,0 +1,23 @@
+{
+  "homePage": {
+    "title": "Welcome to my website!"
+  },
+  "header": {
+    "title": "Main title"
+  },
+  "sideMenu": {
+    "item1": "Link 1",
+    "item2": "Link 2",
+    "item3": "Link 3"
+  },
+  "footer": {
+    "title": "My Company ©"
+  },
+  "user": {
+    "menu": {
+      "login": "Login",
+      "logout": "Logout",
+      "dashboard": "Dashboard"
+    }
+  }
+}

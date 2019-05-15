@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://0.0.0.0:1234",
+  "apiUrl": "https://jsonplaceholder.typicode.com/",
+  "loginUrl": "/login"
+}

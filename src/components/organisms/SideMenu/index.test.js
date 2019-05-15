@@ -1,11 +1,11 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Footer from '.'
+import SideMenu from '.'
 
-describe('Footer', () => {
+describe('SideMenu', () => {
   it('renders correctly the component', () => {
-    const tree = () => renderer.create(<Footer />).toJSON()
+    const tree = () => renderer.create(<SideMenu />).toJSON()
 
     expect(tree).toMatchSnapshot()
   })

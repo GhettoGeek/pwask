@@ -1,11 +1,11 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Footer from '.'
+import Hero from '.'
 
-describe('Footer', () => {
+describe('Hero', () => {
   it('renders correctly the component', () => {
-    const tree = () => renderer.create(<Footer />).toJSON()
+    const tree = () => renderer.create(<Hero />).toJSON()
 
     expect(tree).toMatchSnapshot()
   })

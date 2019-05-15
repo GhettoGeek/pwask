@@ -1,68 +1,91 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
+import { styled } from '../../../utils/style'
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #eee;
-`
+import Header from '../../organisms/Header'
+import Footer from '../../organisms/Footer'
 
-const Header = styled.div`${() => css`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 20;
-`}`
+const muiTheme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#8389d5',
+      main: '#525ca3',
+      dark: '#1f3374',
+    },
+    secondary: {
+      light: '#F9F9F9',
+      main: '#FFF',
+      dark: '#5E5E5E',
+    },
+    common: {
+      white: '#FFF',
+      black: '#262626',
+      grey: '#EEE',
+      danger: '#d32f2f',
+      alert: '#ffa000',
+      success: '#388e3c',
+    },
+  },
+  typography: {
+    useNextVariants: true,
+  },
+  spacing: {
+    xs: '0.4rem',
+    s: '0.8rem',
+    m: '1.6rem',
+    l: '2.5rem',
+    xl: '3.2rem',
+    xxl: '5rem',
+    xxxl: '10rem',
+  },
+})
 
-const Content = styled.div`
-  width: 100%;
-  margin: 0;
-`
+const Wrapper = styled('div')(theme => ({
+  backgroundColor: theme.palette.common.grey,
+}))
 
-const Footer = styled.footer`
-  margin-top: auto;
-  width: 100%;
-`
+const HeaderWrapper = styled('div')({
+  position: 'absolute',
+  left: 0,
+  top: 0,
+  width: '100%',
+  zIndex: 20,
+})
 
-class PageTemplate extends Component {
-  static propTypes = {
-    header: PropTypes.any.isRequired,
-    children: PropTypes.any.isRequired,
-    footer: PropTypes.any.isRequired,
-  }
+const Content = styled('div')(theme => ({
+  marginTop: theme.spacing.xl,
+  padding: theme.spacing.l,
+}))
 
-  state = {
-    loaded: false,
-  }
+const FooterWrapper = styled('footer')({
+  marginTop: 'auto',
+})
 
-  render() {
-    const {
-      header,
-      children,
-      footer,
-      ...props
-    } = this.props
-    const { loaded } = this.state
+const PageTemplate = ({
+  header,
+  children,
+  footer,
+  ...props
+}) => (
+  <Wrapper {...props}>
+    <MuiThemeProvider theme={muiTheme}>
+      <HeaderWrapper>{header}</HeaderWrapper>
+      <Content>{children}</Content>
+      <FooterWrapper>{footer}</FooterWrapper>
+    </MuiThemeProvider>
+  </Wrapper>
+)
 
-    return (
-      <Wrapper {...props}>
-        <Header {...{ ...props, loaded }}>
-          {header}
-        </Header>
-        <Content>
-          {children}
-        </Content>
-        <Footer>
-          {footer}
-        </Footer>
-      </Wrapper>
-    )
-  }
+PageTemplate.propTypes = {
+  header: PropTypes.shape(),
+  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  footer: PropTypes.shape(),
+}
+
+PageTemplate.defaultProps = {
+  header: <Header />,
+  footer: <Footer />,
 }
 
 export default PageTemplate
