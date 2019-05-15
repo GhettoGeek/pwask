@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb renders correctly the component 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="MuiTypography-root-5 MuiTypography-body1-14 MuiTypography-colorTextSecondary-38 MuiBreadcrumbs-root-1"
+>
+  <ol
+    className="MuiBreadcrumbs-ol-2"
+  >
+    <li
+      className="MuiBreadcrumbs-li-3"
+    >
+      <a
+        className="MuiTypography-root-5 MuiTypography-colorInherit-34 MuiTypography-inline-40 MuiLink-root-41 MuiLink-underlineHover-43"
+        href="/"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root-47 StyledComponent-root-46"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+          />
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+        </svg>
+      </a>
+    </li>
+  </ol>
+</nav>
+`;

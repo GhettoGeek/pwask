@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1557951218140" clover="3.2.0">
+  <project timestamp="1557951218141" name="All files">
+    <metrics statements="62" coveredstatements="34" conditionals="32" coveredconditionals="10" methods="26" coveredmethods="10" elements="120" coveredelements="54" complexity="0" loc="62" ncloc="62" packages="7" files="8" classes="8"/>
+    <package name="components.molecules.Breadcrumb">
+      <metrics statements="9" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="index.js" path="/Users/7s4r/Projects/spa-starter-kit/src/components/molecules/Breadcrumb/index.js">
+        <metrics statements="9" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.molecules.UserAccount">
+      <metrics statements="10" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="3"/>
+      <file name="index.js" path="/Users/7s4r/Projects/spa-starter-kit/src/components/molecules/UserAccount/index.js">
+        <metrics statements="10" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="3"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.organisms.Footer">
+      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="index.js" path="/Users/7s4r/Projects/spa-starter-kit/src/components/organisms/Footer/index.js">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.organisms.Header">
+      <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="index.js" path="/Users/7s4r/Projects/spa-starter-kit/src/components/organisms/Header/index.js">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.organisms.Hero">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.js" path="/Users/7s4r/Projects/spa-starter-kit/src/components/organisms/Hero/index.js">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.organisms.SideMenu">
+      <metrics statements="7" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="index.js" path="/Users/7s4r/Projects/spa-starter-kit/src/components/organisms/SideMenu/index.js">
+        <metrics statements="7" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="25" coveredstatements="13" conditionals="24" coveredconditionals="7" methods="9" coveredmethods="5"/>
+      <file name="storage.js" path="/Users/7s4r/Projects/spa-starter-kit/src/utils/storage.js">
+        <metrics statements="13" coveredstatements="4" conditionals="19" coveredconditionals="5" methods="3" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="4" falsecount="1"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+      </file>
+      <file name="style.js" path="/Users/7s4r/Projects/spa-starter-kit/src/utils/style.js">
+        <metrics statements="12" coveredstatements="9" conditionals="5" coveredconditionals="2" methods="6" coveredmethods="4"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="24" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="36" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
