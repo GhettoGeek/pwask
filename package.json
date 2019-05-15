@@ -48,7 +48,6 @@
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "parcel-plugin-static-files-copy": "^2.1.0",
     "react-test-renderer": "^16.8.6",
-    "serve": "^11.0.0",
     "testcafe": "^1.1.4"
   },
   "dependencies": {
@@ -67,6 +66,6 @@
     "react-dom": ">= 16.3.0",
     "react-i18next": "^10.9.0",
     "react-router-dom": "^5.0.0",
-    "styled-components": "^4.2.0"
+    "serve": "^11.0.0"
   }
 }
