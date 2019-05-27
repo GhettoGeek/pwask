@@ -46,7 +46,7 @@
     "jest": "^24.7.1",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
-    "parcel-plugin-static-files-copy": "^2.1.0",
+    "parcel-plugin-static-files-copy": "^2.1.1",
     "react-test-renderer": "^16.8.6",
     "testcafe": "^1.1.4"
   },
