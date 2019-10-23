@@ -1,9 +1,9 @@
-# spa-starter-kit
+# pwa-starter-kit
 Version: 0.0.1
 
-[![CircleCI](https://circleci.com/gh/7s4r/spa-starter-kit/tree/master.svg?style=svg)](https://circleci.com/gh/7s4r/spa-starter-kit/tree/master)
+[![CircleCI](https://circleci.com/gh/7s4r/pwa-starter-kit/tree/master.svg?style=svg)](https://circleci.com/gh/7s4r/pwa-starter-kit/tree/master)
 
-The most advanced server less starter kit for a single page application.
+The most advanced server less starter kit for a progressive web application.
 It's bootstrapped with:
 * [React 16](https://reactjs.org/docs/getting-started.html) for building rich UI interface
 * The blazing fast and zero configuration [Parcel bundler](https://parceljs.org/getting_started.html)

@@ -16,6 +16,13 @@
     "comma-dangle": [2, "always-multiline"],
     "react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx"]}],
     "import/no-useless-path-segments": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "react/jsx-props-no-spreading": "off",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      { "blankLine": "any",    "prev": ["const", "let", "var"], "next": ["const", "let", "var"] },
+      { "blankLine": "always", "prev": "*", "next": "return" }
+    ]
   }
 }

@@ -1,18 +1,18 @@
 {
-  "name": "spa-starter-kit",
+  "name": "pwa-starter-kit",
   "version": "1.0.0",
-  "description": "The most advanced starter kit for a single page application",
+  "description": "The most advanced starter kit for a progressive web application",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/7s4r/spa-starter-kit.git"
+    "url": "git+https://github.com/7s4r/pwa-starter-kit.git"
   },
   "author": "Gueorgui AGAPOV",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/7s4r/spa-starter-kit/issues"
+    "url": "https://github.com/7s4r/pwa-starter-kit/issues"
   },
-  "homepage": "https://github.com/7s4r/spa-starter-kit#readme",
+  "homepage": "https://github.com/7s4r/pwa-starter-kit#readme",
   "jest": {
     "moduleDirectories": [
       "src",
@@ -20,7 +20,11 @@
     ],
     "moduleNameMapper": {
       "^.+\\.(jpg|jpeg|png|svg)$": "<rootDir>/tests/__mocks__/fileMock.js"
-    }
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.js",
+      "<rootDir>/tests/__mocks__/localStorageMock.js"
+    ]
   },
   "scripts": {
     "dev": "parcel index.html --https",
@@ -32,40 +36,42 @@
     "start": "serve -s dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.8.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.12.4",
-    "jest": "^24.7.1",
-    "parcel-bundler": "^1.12.3",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "jest": "^24.9.0",
+    "parcel-bundler": "^1.12.4",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
-    "parcel-plugin-static-files-copy": "^2.1.1",
-    "react-test-renderer": "^16.8.6",
-    "testcafe": "^1.1.4"
+    "parcel-plugin-static-files-copy": "^2.2.1",
+    "regenerator-runtime": "^0.13.3",
+    "testcafe": "^1.6.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4",
-    "@material-ui/core": "^3.0.0",
-    "@material-ui/icons": "^3.0.2",
-    "@material-ui/lab": "^3.0.0-alpha.30",
+    "@babel/polyfill": "^7.6.0",
+    "@material-ui/core": "^4.5.1",
+    "@material-ui/icons": "^4.5.1",
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
-    "i18next": "^17.0.16",
-    "i18next-browser-languagedetector": "^3.0.1",
-    "i18next-xhr-backend": "^3.0.0",
-    "lodash": "^4.17.11",
+    "i18next": "^17.3.0",
+    "i18next-browser-languagedetector": "^4.0.0",
+    "i18next-xhr-backend": "^3.2.0",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
-    "react": ">= 16.3.0",
-    "react-dom": ">= 16.3.0",
-    "react-i18next": "^10.11.0",
-    "react-router-dom": "^5.0.0",
-    "serve": "^11.0.0"
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-i18next": "^10.13.1",
+    "react-router-dom": "^5.1.2",
+    "serve": "^11.2.0"
   }
 }
