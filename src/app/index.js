@@ -2,35 +2,33 @@ import React, { Suspense } from 'react'
 import {
   BrowserRouter, Switch, Route, Redirect,
 } from 'react-router-dom'
-import api from '../common/utils/api'
 import storage from '../common/utils/storage'
+import appConfig from './appConfig'
 import { AppContextProvider } from './appContext'
+import { AuthContextProvider } from './modules/auth'
 import HomePage from './pages/HomePage'
 import ErrorPage from './pages/ErrorPage'
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      config: {},
-    }
-    this.getConfig()
-  }
+function onRedirectCallback(appState) {
+  window.history.replaceState(
+    {},
+    document.title,
+    appState && appState.targetUrl
+      ? appState.targetUrl
+      : window.location.pathname
+  )
+}
 
-  getConfig = async () => {
-    const response = await fetch('/config.json')
-    const config = await response.json()
-
-    this.setState({ config })
-    api.setBaseUrl(config.apiUrl)
-  }
-
-  render() {
-    const { config } = this.state
-
-    return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <AppContextProvider config={config}>
+function App() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AuthContextProvider
+        domain={appConfig.auth.domain}
+        client_id={appConfig.auth.clientId}
+        redirect_uri={window.location.origin}
+        onRedirectCallback={onRedirectCallback}
+      >
+        <AppContextProvider>
           <BrowserRouter>
             <Switch>
               <Route path="/" exact>
@@ -38,7 +36,7 @@ class App extends React.Component {
               </Route>
               <Route path="/login">
                 {() => {
-                  window.location = config.loginUrl
+                  window.location = appConfig.loginUrl
 
                   return null
                 }}
@@ -56,9 +54,9 @@ class App extends React.Component {
             </Switch>
           </BrowserRouter>
         </AppContextProvider>
-      </Suspense>
-    )
-  }
+      </AuthContextProvider>
+    </Suspense>
+  )
 }
 
 export default App

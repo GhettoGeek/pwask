@@ -1,30 +1,55 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withTranslation } from 'react-i18next'
-import { Grid, Typography } from '@material-ui/core'
+import { useTranslation } from 'react-i18next'
+import { Grid } from '@material-ui/core'
+import {
+  Edit as EditIcon,
+} from '@material-ui/icons'
 import { styled } from '../../common/utils/style'
 import MainTemplate from '../../common/templates/MainTemplate'
-import Hero from '../../common/components/organisms/Hero/Hero'
+import { Header, Hero, Typography } from '../../common/components'
+import UserMenuContainer from '../modules/user/containers/UserMenuContainer'
 
-const MainTitle = styled(Typography)({
-  textAlign: 'center',
+const StyledTypography = styled(Typography)({
   fontSize: '30px',
   fontWeight: 'bold',
 })
 
-const HomePage = ({ t }) => (
-  <MainTemplate>
-    <Grid container justify="center" alignItems="center">
-      <Grid item xs={12}>
-        <MainTitle color="primary">{t('homePage.title')}</MainTitle>
-      </Grid>
-    </Grid>
-    <Hero />
-  </MainTemplate>
-)
+function HomePage() {
+  const { t } = useTranslation()
+  const sideMenuItems = [
+    {
+      label: t('sideMenu.item1'),
+      icon: <EditIcon />,
+      link: '#',
+    },
+    {
+      label: t('sideMenu.item2'),
+      icon: <EditIcon />,
+      link: '#',
+    },
+  ]
 
-HomePage.propTypes = {
-  t: PropTypes.func.isRequired,
+  return (
+    <MainTemplate
+      header={(
+        <Header
+          title={t('header.title')}
+          sideMenuItems={sideMenuItems}
+        >
+          <UserMenuContainer />
+        </Header>
+      )}
+    >
+      <Grid container justify="center" alignItems="center">
+        <Grid item xs={12}>
+          <StyledTypography color="primary" align="center">
+            {t('homePage.title')}
+          </StyledTypography>
+        </Grid>
+      </Grid>
+      <Hero />
+    </MainTemplate>
+  )
 }
 
-export default withTranslation()(HomePage)
+export default HomePage

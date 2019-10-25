@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
+import { SnackbarProvider } from 'notistack'
+import { CssBaseline } from '@material-ui/core'
+import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles'
 import { styled } from '../utils/style'
-import Header from '../components/organisms/Header/Header'
-import Footer from '../components/organisms/Footer/Footer'
+import { Footer, Header } from '../components'
 
 const muiTheme = createMuiTheme({
   palette: {
@@ -32,6 +33,12 @@ const muiTheme = createMuiTheme({
   },
 })
 
+const GlobalCss = withStyles({
+  '@global': {
+    'font-family': '"Roboto", "Helvetica", "Arial", sans-serif',
+  },
+})(() => null)
+
 const Wrapper = styled('div')((theme) => ({
   backgroundColor: theme.palette.common.grey,
 }))
@@ -59,11 +66,15 @@ const PageTemplate = ({
   footer,
 }) => (
   <Wrapper>
-    <MuiThemeProvider theme={muiTheme}>
-      <HeaderWrapper>{header}</HeaderWrapper>
-      <Content>{children}</Content>
-      <FooterWrapper>{footer}</FooterWrapper>
-    </MuiThemeProvider>
+    <GlobalCss />
+    <CssBaseline />
+    <SnackbarProvider>
+      <MuiThemeProvider theme={muiTheme}>
+        <HeaderWrapper>{header}</HeaderWrapper>
+        <Content>{children}</Content>
+        <FooterWrapper>{footer}</FooterWrapper>
+      </MuiThemeProvider>
+    </SnackbarProvider>
   </Wrapper>
 )
 

@@ -1,9 +1,9 @@
+import '@babel/polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import '@babel/polyfill'
 import './common/utils/i18n'
-import * as serviceWorker from './app/serviceWorker'
 import App from './app'
+import * as serviceWorker from './app/serviceWorker'
 
 ReactDOM.render(
   <App />,

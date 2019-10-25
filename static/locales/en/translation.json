@@ -15,7 +15,7 @@
   },
   "user": {
     "menu": {
-      "login": "Login",
+      "login": "Login / Register",
       "logout": "Logout",
       "dashboard": "Dashboard"
     }
