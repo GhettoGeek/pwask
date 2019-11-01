@@ -13,7 +13,7 @@ describe('UserAccount', () => {
     const wrapper = shallow(
       <MemoryRouter initialEntries={['/']} initialIndex={0}>
         <UserAccount user={user} />
-      </MemoryRouter>
+      </MemoryRouter>,
     )
 
     expect(wrapper.html()).toMatchSnapshot()

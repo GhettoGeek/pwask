@@ -39,13 +39,13 @@ Header.propTypes = {
     icon: PropTypes.node,
     link: PropTypes.string,
   })),
-  children: PropTypes.shape(),
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
 }
 
 Header.defaultProps = {
   title: '',
   sideMenuItems: [],
-  children: [],
+  children: '',
 }
 
 export default Header

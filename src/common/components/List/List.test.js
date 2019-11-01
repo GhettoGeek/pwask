@@ -19,7 +19,7 @@ describe('List', () => {
     const wrapper = shallow(
       <MemoryRouter initialEntries={['/']} initialIndex={0}>
         <List items={items} />
-      </MemoryRouter>
+      </MemoryRouter>,
     )
 
     expect(wrapper.html()).toMatchSnapshot()

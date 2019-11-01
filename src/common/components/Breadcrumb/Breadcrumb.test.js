@@ -8,7 +8,7 @@ describe('Breadcrumb', () => {
     const wrapper = shallow(
       <MemoryRouter initialEntries={['/']} initialIndex={0}>
         <Breadcrumb />
-      </MemoryRouter>
+      </MemoryRouter>,
     )
 
     expect(wrapper.html()).toMatchSnapshot()

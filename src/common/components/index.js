@@ -1,5 +1,6 @@
 import Breadcrumb from './Breadcrumb'
 import Button from './Button'
+import Card from './Card'
 import Footer from './Footer'
 import Header from './Header'
 import Hero from './Hero'
@@ -12,6 +13,7 @@ import Typography from './Typography'
 export {
   Breadcrumb,
   Button,
+  Card,
   Footer,
   Header,
   Hero,

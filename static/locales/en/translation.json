@@ -1,9 +1,9 @@
 {
   "homePage": {
-    "title": "Welcome to my website!"
+    "title": "Welcome to the main page of PWA Starter Kit!"
   },
   "header": {
-    "title": "Main title"
+    "title": "PWA Starter Kit"
   },
   "sideMenu": {
     "item1": "Link 1",
@@ -11,7 +11,7 @@
     "item3": "Link 3"
   },
   "footer": {
-    "title": "My Company ©"
+    "title": "PWA Starter Kit ©"
   },
   "user": {
     "menu": {
@@ -19,5 +19,9 @@
       "logout": "Logout",
       "dashboard": "Dashboard"
     }
+  },
+  "common": {
+    "addToFavorite": "Add to favorites",
+    "share": "Share"
   }
 }

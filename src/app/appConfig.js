@@ -10,11 +10,11 @@ const config = {
   },
   development: {
     baseUrl: 'https://0.0.0.0:1234',
-    apiUrl: 'https://jsonplaceholder.typicode.com/',
+    apiUrl: 'https://pwa-starter-kit-backend.herokuapp.com/v1/graphql',
   },
   production: {
     baseUrl: 'https://spa-starter-kit.herokuapp.com',
-    apiUrl: 'https://jsonplaceholder.typicode.com/',
+    apiUrl: 'https://pwa-starter-kit-backend.herokuapp.com/v1/graphql',
   },
 }
 

@@ -13,6 +13,22 @@
     "url": "https://github.com/7s4r/pwa-starter-kit/issues"
   },
   "homepage": "https://github.com/7s4r/pwa-starter-kit#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [
+    "pwa",
+    "spa",
+    "progressive web app",
+    "reactjs",
+    "graphql",
+    "starter-kit",
+    "boilerplate",
+    "heroku",
+    "hasura",
+    "auth0",
+    "serverless"
+  ],
   "jest": {
     "moduleDirectories": [
       "src",
@@ -44,7 +60,7 @@
     "babel-jest": "^24.9.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -58,19 +74,22 @@
     "testcafe": "^1.6.0"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.3.2",
+    "@auth0/auth0-spa-js": "^1.5.0",
     "@babel/polyfill": "^7.6.0",
-    "@material-ui/core": "^4.5.1",
+    "@material-ui/core": "^4.5.2",
     "@material-ui/icons": "^4.5.1",
+    "apollo-boost": "^0.4.4",
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
-    "i18next": "^18.0.0",
-    "i18next-browser-languagedetector": "^4.0.0",
-    "i18next-xhr-backend": "^3.2.0",
+    "graphql": "^14.5.8",
+    "i18next": "^19.0.0",
+    "i18next-browser-languagedetector": "^4.0.1",
+    "i18next-xhr-backend": "^3.2.2",
     "lodash": "^4.17.15",
     "notistack": "^0.9.5",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
+    "react-apollo": "^3.1.3",
     "react-dom": "^16.11.0",
     "react-i18next": "^11.0.0",
     "react-router-dom": "^5.1.2",

@@ -8,7 +8,7 @@ describe('Link', () => {
     const wrapper = shallow(
       <MemoryRouter initialEntries={['/']} initialIndex={0}>
         <Link to="/">link</Link>
-      </MemoryRouter>
+      </MemoryRouter>,
     )
 
     expect(wrapper.html()).toMatchSnapshot()

@@ -1,9 +1,9 @@
 # pwa-starter-kit
-Version: 0.0.1
+Version: 1.0.0
 
 [![CircleCI](https://circleci.com/gh/7s4r/pwa-starter-kit/tree/master.svg?style=svg)](https://circleci.com/gh/7s4r/pwa-starter-kit/tree/master)
 
-The most advanced server less starter kit for a progressive web application.
+The most advanced serverless starter kit for a progressive web application.
 It's bootstrapped with:
 * [React 16](https://reactjs.org/docs/getting-started.html) for building rich UI interface
 * The blazing fast and zero configuration [Parcel bundler](https://parceljs.org/getting_started.html)
@@ -17,13 +17,7 @@ Based on [Atomic Design](http://atomicdesign.bradfrost.com/chapter-2/) methodolo
 Please respect theses [clean code concepts](https://github.com/ryanmcdermott/clean-code-javascript).
 
 ## Requirements
-[Node.js](https://nodejs.org/), [Yarn](https://yarnpkg.com/en/docs/install)
-
-Installation in Ubuntu:
-```
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
+[Node.js](https://nodejs.org/), [Yarn](https://yarnpkg.com/en/docs/install), [Heroku](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
 ## Getting Started
 

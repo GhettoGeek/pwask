@@ -2,6 +2,8 @@ import React, { Suspense } from 'react'
 import {
   BrowserRouter, Switch, Route, Redirect,
 } from 'react-router-dom'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
 import storage from '../common/utils/storage'
 import appConfig from './appConfig'
 import { AppContextProvider } from './appContext'
@@ -15,11 +17,15 @@ function onRedirectCallback(appState) {
     document.title,
     appState && appState.targetUrl
       ? appState.targetUrl
-      : window.location.pathname
+      : window.location.pathname,
   )
 }
 
 function App() {
+  const client = new ApolloClient({
+    uri: appConfig.apiUrl,
+  })
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <AuthContextProvider
@@ -29,30 +35,32 @@ function App() {
         onRedirectCallback={onRedirectCallback}
       >
         <AppContextProvider>
-          <BrowserRouter>
-            <Switch>
-              <Route path="/" exact>
-                <HomePage />
-              </Route>
-              <Route path="/login">
-                {() => {
-                  window.location = appConfig.loginUrl
+          <ApolloProvider client={client}>
+            <BrowserRouter>
+              <Switch>
+                <Route path="/" exact>
+                  <HomePage />
+                </Route>
+                <Route path="/login">
+                  {() => {
+                    window.location = appConfig.loginUrl
 
-                  return null
-                }}
-              </Route>
-              <Route path="/logout">
-                {() => {
-                  storage.remove('auth')
+                    return null
+                  }}
+                </Route>
+                <Route path="/logout">
+                  {() => {
+                    storage.remove('auth')
 
-                  return <Redirect to="/" />
-                }}
-              </Route>
-              <Route path="*">
-                <ErrorPage />
-              </Route>
-            </Switch>
-          </BrowserRouter>
+                    return <Redirect to="/" />
+                  }}
+                </Route>
+                <Route path="*">
+                  <ErrorPage />
+                </Route>
+              </Switch>
+            </BrowserRouter>
+          </ApolloProvider>
         </AppContextProvider>
       </AuthContextProvider>
     </Suspense>

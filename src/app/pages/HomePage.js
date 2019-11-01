@@ -8,6 +8,7 @@ import { styled } from '../../common/utils/style'
 import MainTemplate from '../../common/templates/MainTemplate'
 import { Header, Hero, Typography } from '../../common/components'
 import UserMenuContainer from '../modules/user/containers/UserMenuContainer'
+import ResourceListContainer from '../modules/resource/containers/ResourceListContainer'
 
 const StyledTypography = styled(Typography)({
   fontSize: '30px',
@@ -45,6 +46,9 @@ function HomePage() {
           <StyledTypography color="primary" align="center">
             {t('homePage.title')}
           </StyledTypography>
+        </Grid>
+        <Grid item xs={12}>
+          <ResourceListContainer />
         </Grid>
       </Grid>
       <Hero />
