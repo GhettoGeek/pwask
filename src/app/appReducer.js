@@ -1,4 +1,5 @@
-import _ from 'lodash'
+import merge from 'lodash/merge'
+import assign from 'lodash/assign'
 
 export const appInitialState = {
   dialog: {
@@ -10,7 +11,7 @@ export const appInitialState = {
 export const appReducer = (state, action) => {
   switch (action.type) {
     case 'SET_FORM_ERRORS':
-      return _.merge({}, state, {
+      return merge({}, state, {
         formErrors: {
           [action.payload.formId]: {
             ...action.payload.errors,
@@ -18,7 +19,7 @@ export const appReducer = (state, action) => {
         },
       })
     case 'CLEAR_FORM_ERRORS':
-      return _.assign({}, state, {
+      return assign({}, state, {
         formErrors: {},
       })
     default:

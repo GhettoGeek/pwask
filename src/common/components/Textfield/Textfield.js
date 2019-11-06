@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
+import { TextField } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function EnhancedTextfield({
+function EnhancedTextField({
   id, label, variant, error, helperText,
 }) {
   const classes = useStyles()
@@ -36,7 +36,7 @@ function EnhancedTextfield({
   )
 }
 
-EnhancedTextfield.propTypes = {
+EnhancedTextField.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   variant: PropTypes.string,
@@ -44,7 +44,7 @@ EnhancedTextfield.propTypes = {
   helperText: PropTypes.string,
 }
 
-EnhancedTextfield.defaultProps = {
+EnhancedTextField.defaultProps = {
   id: 'standard-textfield',
   label: '',
   variant: 'standard',
@@ -52,4 +52,4 @@ EnhancedTextfield.defaultProps = {
   helperText: null,
 }
 
-export default EnhancedTextfield
+export default EnhancedTextField

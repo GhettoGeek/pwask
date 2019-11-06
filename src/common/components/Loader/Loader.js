@@ -1,15 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import { styled } from '../../utils/style'
+import { CircularProgress } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 
-const StyledCircularProgress = styled(CircularProgress)((theme) => ({
-  margin: theme.spacing(2),
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(2),
+  },
 }))
 
 function Loader({ size }) {
+  const classes = useStyles()
+
   return (
-    <StyledCircularProgress size={size} />
+    <CircularProgress size={size} className={classes.root} />
   )
 }
 

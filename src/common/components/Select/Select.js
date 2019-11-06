@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Select from '@material-ui/core/Select'
+import { Select } from '@material-ui/core'
 
 function EnhancedSelect({
   id, items, ...props

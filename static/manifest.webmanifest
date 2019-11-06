@@ -1,6 +1,6 @@
 {
-  "short_name": "SPASK",
-  "name": "SPA Starter Kit",
+  "short_name": "PWASK",
+  "name": "PWA Starter Kit",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://pwask.netlify.com/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

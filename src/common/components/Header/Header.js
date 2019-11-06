@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { AppBar, Toolbar, Typography } from '@material-ui/core'
+import { AppBar, Toolbar } from '@material-ui/core'
 import { styled } from '../../utils/style'
 import SideMenu from '../SideMenu'
+import Typography from '../Typography'
 
 const Wrapper = styled('div')({
   display: 'flex',

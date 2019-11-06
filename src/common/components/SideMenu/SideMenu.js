@@ -1,13 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
-import {
-  Drawer, IconButton,
-} from '@material-ui/core'
-import {
-  Menu as MenuIcon,
-} from '@material-ui/icons'
+import { Drawer } from '@material-ui/core'
 import List from '../List'
+import Icon from '../Icon'
 
 function TemporaryDrawer({ items }) {
   const { t } = useTranslation()
@@ -15,9 +11,12 @@ function TemporaryDrawer({ items }) {
 
   return (
     <div>
-      <IconButton color="inherit" aria-label={t('sideMenu.openDrawer')} onClick={() => setIsOpen(true)}>
-        <MenuIcon />
-      </IconButton>
+      <Icon
+        name="menu"
+        color="inherit"
+        aria-label={t('sideMenu.openDrawer')}
+        onClick={() => setIsOpen(true)}
+      />
       <Drawer open={isOpen} onClose={() => setIsOpen(false)}>
         <div
           tabIndex={0}

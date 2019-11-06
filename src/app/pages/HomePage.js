@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import Grid from '@material-ui/core/Grid'
+import { Grid } from '@material-ui/core'
 import MainTemplate from '../../common/templates/MainTemplate'
 import {
   Header, Hero, Icon,
@@ -15,12 +15,12 @@ function HomePage() {
   const sideMenuItems = [
     {
       label: t('sideMenu.item1'),
-      icon: <Icon type="material-ui" name="Edit" />,
+      icon: <Icon type="material-ui" name="edit" />,
       link: '#',
     },
     {
       label: t('sideMenu.item2'),
-      icon: <Icon type="material-ui" name="Edit" />,
+      icon: <Icon type="material-ui" name="edit" />,
       link: '#',
     },
   ]

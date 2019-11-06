@@ -3,24 +3,27 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { Breadcrumbs } from '@material-ui/core'
 import { Home as HomeIcon } from '@material-ui/icons'
-import { styled } from '../../utils/style'
+import { makeStyles } from '@material-ui/core/styles'
 import Link from '../Link'
 import Typography from '../Typography'
 
-const StyledHomeIcon = styled(HomeIcon)((theme) => ({
-  marginRight: theme.spacing(1),
-  width: 20,
-  height: 20,
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    marginRight: theme.spacing(1),
+    width: 20,
+    height: 20,
+  },
 }))
 
 const BreadCrumb = ({ location }) => {
+  const classes = useStyles()
   const crumbs = location.pathname.split('/').filter(Boolean)
   const crumbsLength = crumbs.length
 
   return (
     <Breadcrumbs aria-label="Breadcrumb">
       <Link color="inherit" href="/">
-        <StyledHomeIcon />
+        <HomeIcon className={classes.icon} />
       </Link>
       {
         crumbs.map((item, index) => {

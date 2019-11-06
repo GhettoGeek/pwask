@@ -1,11 +1,12 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
-import BottomNavigation from '@material-ui/core/BottomNavigation'
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
-import RestoreIcon from '@material-ui/icons/Restore'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import LocationOnIcon from '@material-ui/icons/LocationOn'
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core'
+import {
+  Restore as RestoreIcon,
+  Favorite as FavoriteIcon,
+  LocationOn as LocationOnIcon,
+} from '@material-ui/icons'
 
 const useStyles = makeStyles({
   root: {

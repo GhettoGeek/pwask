@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import merge from 'lodash/merge'
 
 const config = {
   all: {
@@ -25,4 +25,4 @@ const config = {
   },
 }
 
-export default _.merge(config.all, config[config.all.env])
+export default merge(config.all, config[config.all.env])

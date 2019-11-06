@@ -1,7 +1,6 @@
 # pwask
 
 [![CircleCI](https://circleci.com/gh/7s4r/pwask/tree/master.svg?style=svg)](https://circleci.com/gh/7s4r/pwask/tree/master)
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8385db4c-771c-499c-897c-b0e97c81fc30/deploy-status)](https://app.netlify.com/sites/pwask/deploys)
 
 The most advanced serverless starter kit for a progressive web application.
