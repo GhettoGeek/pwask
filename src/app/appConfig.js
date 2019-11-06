@@ -20,7 +20,7 @@ const config = {
     apiUrl: 'https://pwa-starter-kit-backend.herokuapp.com/v1/graphql',
   },
   production: {
-    baseUrl: 'https://spa-starter-kit.herokuapp.com',
+    baseUrl: 'https://pwask.netlify.com',
     apiUrl: 'https://pwa-starter-kit-backend.herokuapp.com/v1/graphql',
   },
 }

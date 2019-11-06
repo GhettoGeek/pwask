@@ -3,7 +3,7 @@
     "title": "Homepage"
   },
   "header": {
-    "title": "PWA Starter Kit"
+    "title": "Pwask"
   },
   "sideMenu": {
     "item1": "Link 1",
@@ -11,14 +11,14 @@
     "item3": "Link 3"
   },
   "hero": {
-    "title": "Welcome to the main page of PWA Starter Kit!"
+    "title": "Welcome to the main page of Pwask!"
   },
   "search": {
     "selectResource": "Select resource",
     "chooseLocation": "Choose a location"
   },
   "footer": {
-    "title": "PWA Starter Kit ©"
+    "title": "Pwask ©"
   },
   "user": {
     "menu": {
