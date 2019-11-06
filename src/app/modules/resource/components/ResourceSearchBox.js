@@ -8,9 +8,11 @@ import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
-import { Grid, Paper, InputAdornment } from '@material-ui/core'
 import {
-  Button, Icon, Select, Textfield, Typography,
+  Grid, Paper, TextField, InputAdornment,
+} from '@material-ui/core'
+import {
+  Button, Icon, Select, Typography,
 } from '../../../../common/components'
 import { loadScript } from '../../../../common/utils/script'
 import config from '../../../appConfig'
@@ -153,8 +155,9 @@ function ResourceSearchBox({ resourceTypes }) {
               includeInputInList
               freeSolo
               disableOpenOnFocus
-              renderInput={() => (
-                <Textfield
+              renderInput={(params) => (
+                <TextField
+                  {...params}
                   label={t('search.chooseLocation')}
                   variant="outlined"
                   fullWidth

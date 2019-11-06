@@ -8,6 +8,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no',
   },
   title: {
     fontSize: '30px',

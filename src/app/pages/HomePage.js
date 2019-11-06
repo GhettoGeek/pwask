@@ -38,7 +38,7 @@ function HomePage() {
     >
       <Grid container justify="center" alignItems="center">
         <Grid item xs={12}>
-          <Hero backgroundImage={`${config.cloudinary.apiUrl}/ofzmjd.jpg`}>
+          <Hero backgroundImage={`${config.cloudinary.apiUrl}/c_scale,w_800/ofzmjd.jpg`}>
             <Grid item sm={8} style={{ margin: '0 auto' }}>
               <ResourceSearchBoxContainer />
             </Grid>
