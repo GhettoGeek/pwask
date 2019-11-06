@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Card from './Card'
+import Select from './Select'
 
-describe('Card', () => {
+describe('Select', () => {
   it('renders correctly the component', () => {
-    const wrapper = shallow(<Card title="Title" />)
+    const wrapper = shallow(<Select />)
 
     expect(wrapper.html()).toMatchSnapshot()
   })

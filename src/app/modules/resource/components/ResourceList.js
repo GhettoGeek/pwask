@@ -1,18 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
+import { makeStyles } from '@material-ui/core/styles'
 import { Card } from '../../../../common/components'
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: theme.spacing(3),
+  },
+}))
+
 function ResourceList({ items }) {
+  const classes = useStyles()
+
   return (
-    <>
+    <Grid
+      container
+      justify="center"
+      alignItems="center"
+      spacing={2}
+      className={classes.root}
+    >
       {items.map(({
         id,
         name,
         mainImage,
         description,
       }) => (
-        <Grid item key={id}>
+        <Grid item key={id} xs={12} sm={4}>
           <Card
             title={name}
             image={mainImage || '/images/placeholder.jpg'}
@@ -20,7 +35,7 @@ function ResourceList({ items }) {
           />
         </Grid>
       ))}
-    </>
+    </Grid>
   )
 }
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Card from './Card'
+import Textfield from './Textfield'
 
-describe('Card', () => {
+describe('Textfield', () => {
   it('renders correctly the component', () => {
-    const wrapper = shallow(<Card title="Title" />)
+    const wrapper = shallow(<Textfield label="Textfield" />)
 
     expect(wrapper.html()).toMatchSnapshot()
   })

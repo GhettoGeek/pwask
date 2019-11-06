@@ -1,25 +1,26 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { Grid } from '@material-ui/core'
-import { styled } from '../../utils/style'
-import Typography from '../Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import BottomNavigation from '../BottomNavigation'
 
-const Wrapper = styled('footer')((theme) => ({
-  marginTop: theme.spacing(1),
-  padding: theme.spacing(1),
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+  },
 }))
 
 function Footer() {
-  const { t } = useTranslation()
+  const classes = useStyles()
 
   return (
-    <Wrapper>
-      <Grid container justify="space-evenly">
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          {t('footer.title')}
-        </Typography>
-      </Grid>
-    </Wrapper>
+    <Grid item xs={12} className={classes.root}>
+      <BottomNavigation />
+    </Grid>
   )
 }
 

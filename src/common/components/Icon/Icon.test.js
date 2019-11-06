@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Card from './Card'
+import Icon from './Icon'
 
-describe('Card', () => {
+describe('Icon', () => {
   it('renders correctly the component', () => {
-    const wrapper = shallow(<Card title="Title" />)
+    const wrapper = shallow(<Icon type="material-ui" name="search" />)
 
     expect(wrapper.html()).toMatchSnapshot()
   })

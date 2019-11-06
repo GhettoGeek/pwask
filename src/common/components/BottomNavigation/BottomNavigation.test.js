@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Card from './Card'
+import BottomNavigation from './BottomNavigation'
 
-describe('Card', () => {
+describe('BottomNavigation', () => {
   it('renders correctly the component', () => {
-    const wrapper = shallow(<Card title="Title" />)
+    const wrapper = shallow(<BottomNavigation />)
 
     expect(wrapper.html()).toMatchSnapshot()
   })

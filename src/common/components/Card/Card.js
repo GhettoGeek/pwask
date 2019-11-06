@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
+import { makeStyles } from '@material-ui/core/styles'
 import {
   Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton,
 } from '@material-ui/core'
@@ -9,31 +10,30 @@ import {
   Share as ShareIcon,
 } from '@material-ui/icons'
 import Typography from '../Typography'
-import { styled } from '../../utils/style'
 
-const StyledCard = styled(Card)({
-  maxWidth: 345,
-})
-
-const StyledCardMedia = styled(CardMedia)({
-  height: 140,
+const useStyles = makeStyles({
+  media: {
+    height: 140,
+  },
 })
 
 function EnhancedCard({ title, description, image }) {
   const { t } = useTranslation()
+  const classes = useStyles()
 
   return (
-    <StyledCard>
+    <Card>
       <CardActionArea>
-        <StyledCardMedia
+        <CardMedia
           image={image}
           title=""
+          className={classes.media}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
           </Typography>
-          <Typography component="p">
+          <Typography variant="body1">
             {description.substring(0, 250)}
             ...
           </Typography>
@@ -47,7 +47,7 @@ function EnhancedCard({ title, description, image }) {
           <ShareIcon />
         </IconButton>
       </CardActions>
-    </StyledCard>
+    </Card>
   )
 }
 

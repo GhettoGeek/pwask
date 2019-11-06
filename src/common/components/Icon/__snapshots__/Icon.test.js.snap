@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon renders correctly the component 1`] = `"<button class=\\"MuiButtonBase-root MuiIconButton-root makeStyles-iconButton-1 MuiIconButton-colorPrimary\\" tabindex=\\"0\\" type=\\"button\\" aria-label=\\"icon-button\\"><span class=\\"MuiIconButton-label\\"><span class=\\"material-icons MuiIcon-root\\" aria-hidden=\\"true\\">search</span></span></button>"`;

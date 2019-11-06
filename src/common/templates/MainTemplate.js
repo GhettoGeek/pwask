@@ -52,8 +52,7 @@ const HeaderWrapper = styled('div')({
 })
 
 const Content = styled('div')((theme) => ({
-  marginTop: theme.spacing(10),
-  padding: theme.spacing(4),
+  marginTop: theme.spacing(12),
 }))
 
 const FooterWrapper = styled('footer')({
@@ -80,7 +79,7 @@ const PageTemplate = ({
 
 PageTemplate.propTypes = {
   header: PropTypes.shape(),
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.node.isRequired,
   footer: PropTypes.shape(),
 }
 

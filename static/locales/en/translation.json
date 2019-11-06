@@ -1,6 +1,6 @@
 {
   "homePage": {
-    "title": "Welcome to the main page of PWA Starter Kit!"
+    "title": "Homepage"
   },
   "header": {
     "title": "PWA Starter Kit"
@@ -9,6 +9,13 @@
     "item1": "Link 1",
     "item2": "Link 2",
     "item3": "Link 3"
+  },
+  "hero": {
+    "title": "Welcome to the main page of PWA Starter Kit!"
+  },
+  "search": {
+    "selectResource": "Select resource",
+    "chooseLocation": "Choose a location"
   },
   "footer": {
     "title": "PWA Starter Kit ©"
@@ -22,6 +29,13 @@
   },
   "common": {
     "addToFavorite": "Add to favorites",
-    "share": "Share"
+    "share": "Share",
+    "search": "Search",
+    "recents": "Recents",
+    "favorites": "Favorites",
+    "nearby": "Nearby",
+    "errors": {
+      "geolocationNotAvailable": "geolocation is not available"
+    }
   }
 }

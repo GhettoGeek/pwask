@@ -2,11 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
-
 import ResourceList from '../components/ResourceList'
 import { Loader } from '../../../../common/components'
 
-const ResourceListContainer = ({ type, country, city }) => {
+function ResourceListContainer({ type, country, city }) {
   const getResources = gql`
     query resourceListByTypeAndCountry {
       resource(where: {

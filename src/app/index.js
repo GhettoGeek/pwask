@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
+import { SnackbarProvider } from 'notistack'
 import storage from '../common/utils/storage'
 import appConfig from './appConfig'
 import { AppContextProvider } from './appContext'
@@ -36,30 +37,32 @@ function App() {
       >
         <AppContextProvider>
           <ApolloProvider client={client}>
-            <BrowserRouter>
-              <Switch>
-                <Route path="/" exact>
-                  <HomePage />
-                </Route>
-                <Route path="/login">
-                  {() => {
-                    window.location = appConfig.loginUrl
+            <SnackbarProvider maxSnack={3}>
+              <BrowserRouter>
+                <Switch>
+                  <Route path="/" exact>
+                    <HomePage />
+                  </Route>
+                  <Route path="/login">
+                    {() => {
+                      window.location = appConfig.loginUrl
 
-                    return null
-                  }}
-                </Route>
-                <Route path="/logout">
-                  {() => {
-                    storage.remove('auth')
+                      return null
+                    }}
+                  </Route>
+                  <Route path="/logout">
+                    {() => {
+                      storage.remove('auth')
 
-                    return <Redirect to="/" />
-                  }}
-                </Route>
-                <Route path="*">
-                  <ErrorPage />
-                </Route>
-              </Switch>
-            </BrowserRouter>
+                      return <Redirect to="/" />
+                    }}
+                  </Route>
+                  <Route path="*">
+                    <ErrorPage />
+                  </Route>
+                </Switch>
+              </BrowserRouter>
+            </SnackbarProvider>
           </ApolloProvider>
         </AppContextProvider>
       </AuthContextProvider>

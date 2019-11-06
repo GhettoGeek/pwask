@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 import {
-  Menu, MenuItem, IconButton,
+  Menu, MenuItem,
 } from '@material-ui/core'
-import { AccountCircle as AccountIcon } from '@material-ui/icons'
-import { Button, Link, Typography } from '../../../../../common/components'
+import {
+  Button, Icon, Link,
+} from '../../../../../common/components'
 
 function UserAccount({ isAuthenticated, user, onActions }) {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -19,43 +20,53 @@ function UserAccount({ isAuthenticated, user, onActions }) {
     setAnchorEl(null)
   }
 
-  return isAuthenticated ? (
+  return (
     <>
-      <Typography color="secondary">
-        {user.name}
-      </Typography>
-      <IconButton
+      <Icon
+        type="material-ui"
+        name="account_circle"
+        fontSize="large"
+        color="secondary"
+        onClick={handleClick}
         aria-owns={anchorEl ? 'simple-menu' : undefined}
         aria-haspopup="true"
-        onClick={handleClick}
-        color="secondary"
-      >
-        <AccountIcon fontSize="large" />
-      </IconButton>
+      />
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {['dashboard'].map((name) => (
-          <MenuItem key={name}>
-            <Link to={`/${name}`}>
-              {t(`user.menu.${name}`)}
-            </Link>
-          </MenuItem>
-        ))}
-        <MenuItem key="logout">
-          <Button onClick={() => onActions('logout')}>
-            {t('user.menu.logout')}
+        {isAuthenticated && (
+          <div>
+            <MenuItem key="user">
+              {`Hello ${user.name}`}
+            </MenuItem>
+            <MenuItem key="logout">
+              <Button
+                variant="text"
+                onClick={() => onActions('logout')}
+              >
+                {t('user.menu.logout')}
+              </Button>
+            </MenuItem>
+            <MenuItem key="dashboard">
+              <Link to="dashboard">
+                {t('user.menu.dashboard')}
+              </Link>
+            </MenuItem>
+          </div>
+        )}
+        {!isAuthenticated && (
+          <Button
+            variant="text"
+            onClick={() => onActions('login')}
+          >
+            {t('user.menu.login')}
           </Button>
-        </MenuItem>
+        )}
       </Menu>
     </>
-  ) : (
-    <Button color="secondary" onClick={() => onActions('login')}>
-      {t('user.menu.login')}
-    </Button>
   )
 }
 

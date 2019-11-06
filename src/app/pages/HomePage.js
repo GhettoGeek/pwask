@@ -1,31 +1,26 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Grid } from '@material-ui/core'
-import {
-  Edit as EditIcon,
-} from '@material-ui/icons'
-import { styled } from '../../common/utils/style'
+import Grid from '@material-ui/core/Grid'
 import MainTemplate from '../../common/templates/MainTemplate'
-import { Header, Hero, Typography } from '../../common/components'
+import {
+  Header, Hero, Icon,
+} from '../../common/components'
 import UserMenuContainer from '../modules/user/containers/UserMenuContainer'
 import ResourceListContainer from '../modules/resource/containers/ResourceListContainer'
-
-const StyledTypography = styled(Typography)({
-  fontSize: '30px',
-  fontWeight: 'bold',
-})
+import ResourceSearchBoxContainer from '../modules/resource/containers/ResourceSearchBoxContainer'
+import config from '../appConfig'
 
 function HomePage() {
   const { t } = useTranslation()
   const sideMenuItems = [
     {
       label: t('sideMenu.item1'),
-      icon: <EditIcon />,
+      icon: <Icon type="material-ui" name="Edit" />,
       link: '#',
     },
     {
       label: t('sideMenu.item2'),
-      icon: <EditIcon />,
+      icon: <Icon type="material-ui" name="Edit" />,
       link: '#',
     },
   ]
@@ -43,15 +38,16 @@ function HomePage() {
     >
       <Grid container justify="center" alignItems="center">
         <Grid item xs={12}>
-          <StyledTypography color="primary" align="center">
-            {t('homePage.title')}
-          </StyledTypography>
+          <Hero backgroundImage={`${config.cloudinary.apiUrl}/ofzmjd.jpg`}>
+            <Grid item sm={8} style={{ margin: '0 auto' }}>
+              <ResourceSearchBoxContainer />
+            </Grid>
+          </Hero>
         </Grid>
         <Grid item xs={12}>
           <ResourceListContainer />
         </Grid>
       </Grid>
-      <Hero />
     </MainTemplate>
   )
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Card from './Card'
+import Divider from './Divider'
 
-describe('Card', () => {
+describe('Divider', () => {
   it('renders correctly the component', () => {
-    const wrapper = shallow(<Card title="Title" />)
+    const wrapper = shallow(<Divider orientation="vertical" />)
 
     expect(wrapper.html()).toMatchSnapshot()
   })

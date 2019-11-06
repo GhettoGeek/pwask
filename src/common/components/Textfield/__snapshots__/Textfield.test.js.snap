@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textfield renders correctly the component 1`] = `"<div class=\\"MuiFormControl-root MuiTextField-root makeStyles-textField-1 MuiFormControl-marginNormal\\"><label class=\\"MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated\\" data-shrink=\\"false\\" for=\\"standard-textfield\\" id=\\"standard-textfield-label\\">Textfield</label><div class=\\"MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl\\"><input type=\\"text\\" aria-invalid=\\"false\\" id=\\"standard-textfield\\" value=\\"\\" aria-label=\\"Textfield\\" class=\\"MuiInputBase-input MuiInput-input\\"/></div></div>"`;

@@ -7,6 +7,13 @@ const config = {
       domain: '7s4r.eu.auth0.com',
       clientId: 'xsvDr11y4zCl7yCTLtIc95vsFlwajjE5',
     },
+    google: {
+      apiUrl: 'https://maps.googleapis.com/maps/api/js',
+      apiKey: process.env.GOOGLE_API_KEY,
+    },
+    cloudinary: {
+      apiUrl: 'https://res.cloudinary.com/dn8yxt3je/image/upload',
+    },
   },
   development: {
     baseUrl: 'https://0.0.0.0:1234',
