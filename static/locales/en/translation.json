@@ -35,6 +35,7 @@
     "favorites": "Favorites",
     "nearby": "Nearby",
     "errors": {
+      "global": "Oops... Something wrong happened. Please try again later.",
       "geolocationNotAvailable": "geolocation is not available"
     }
   }

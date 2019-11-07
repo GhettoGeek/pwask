@@ -1,4 +1,5 @@
 import React from 'react'
+import merge from 'lodash/merge'
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { useSnackbar } from 'notistack'
@@ -48,10 +49,9 @@ const useStyles = makeStyles((theme) => ({
 function ResourceSearchBox({ resourceTypes }) {
   const classes = useStyles()
   const { t } = useTranslation()
+  const [resourceType, setResourceType] = React.useState(null)
   const [position, setPosition] = React.useState({})
-  const [city, setCity] = React.useState('')
-  const [country, setCountry] = React.useState('')
-  const [inputValue, setInputValue] = React.useState('')
+  const [inputValue, setInputValue] = React.useState(null)
   const [options, setOptions] = React.useState([])
   const loaded = React.useRef(false)
   const { enqueueSnackbar } = useSnackbar()
@@ -68,8 +68,12 @@ function ResourceSearchBox({ resourceTypes }) {
     loaded.current = true
   }
 
-  const handleChange = (event) => {
+  const handleLocationChange = (event) => {
     setInputValue(event.target.value)
+  }
+
+  const handleTypeChange = (event) => {
+    setResourceType(event.target.value)
   }
 
   const handleLocationClick = () => {
@@ -78,17 +82,18 @@ function ResourceSearchBox({ resourceTypes }) {
         const { latitude, longitude } = coords
         const latLng = new window.google.maps.LatLng(latitude, longitude)
 
-        setPosition({ latitude, longitude })
-
         new window.google.maps.Geocoder().geocode({ latLng }, (results, status) => {
           if (status === window.google.maps.GeocoderStatus.OK) {
             if (results[0] && results[0].address_components) {
               const currentCity = results[0].address_components[2].long_name
               const currentCountry = results[0].address_components[5].long_name
 
-              setCity(currentCity)
-              setCountry(currentCountry)
-              setInputValue(`${currentCity}, ${currentCountry}`)
+              setPosition({
+                latitude,
+                longitude,
+                country: currentCountry,
+                city: currentCity,
+              })
             }
           }
         })
@@ -98,11 +103,9 @@ function ResourceSearchBox({ resourceTypes }) {
     }
   }
 
-  function handleSubmit() {
-    return (
-      <Redirect to={`/${country}/${city}?position=${position.latitude},${position.longitude}`} />
-    )
-  }
+  const handleSubmit = () => (
+    <Redirect to={`/${position.country}/${position.city}?type=${resourceType}&position=${position.latitude},${position.longitude}`} />
+  )
 
   const fetch = React.useMemo(() => throttle((input, callback) => {
     autocompleteService.current.getPlacePredictions(input, callback)
@@ -144,6 +147,7 @@ function ResourceSearchBox({ resourceTypes }) {
               fullWidth
               id="resource-type"
               items={resourceTypes}
+              onChange={handleTypeChange}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -155,27 +159,33 @@ function ResourceSearchBox({ resourceTypes }) {
               includeInputInList
               freeSolo
               disableOpenOnFocus
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label={t('search.chooseLocation')}
-                  variant="outlined"
-                  fullWidth
-                  value={inputValue}
-                  onChange={handleChange}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Icon
-                          type="material-ui"
-                          name="gps_fixed"
-                          onClick={handleLocationClick}
-                        />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              )}
+              renderInput={(params) => {
+                if (position.latitude && position.longitude) {
+                  merge(params, { inputProps: { value: `${position.city}, ${position.country}` } })
+                }
+
+                return (
+                  <TextField
+                    {...params}
+                    label={t('search.chooseLocation')}
+                    variant="outlined"
+                    fullWidth
+                    value={inputValue}
+                    onChange={handleLocationChange}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Icon
+                            type="material-ui"
+                            name="gps_fixed"
+                            onClick={handleLocationClick}
+                          />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                )
+              }}
               renderOption={(option) => {
                 const matches = option.structured_formatting.main_text_matched_substrings
                 const parts = parse(
@@ -209,7 +219,7 @@ function ResourceSearchBox({ resourceTypes }) {
               color="primary"
               fullWidth
               className={classes.button}
-              onClick={() => handleSubmit()}
+              onClick={handleSubmit}
             >
               {t('common.search')}
             </Button>

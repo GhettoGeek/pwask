@@ -1,30 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
+import { useSnackbar } from 'notistack'
+import { useTranslation } from 'react-i18next'
+import { getResourcesByType } from '../resourceService'
 import ResourceList from '../components/ResourceList'
 import { Loader } from '../../../../common/components'
 
 function ResourceListContainer({ type, country, city }) {
-  const getResources = gql`
-    query resourceListByTypeAndCountry {
-      resource(where: {
-        type: { _eq: "${type}" },
-        country: { _eq: "${country}" },
-        city: { _eq: "${city}" }
-      }) {
-        id
-        name
-        description
-      }
-    }
-  `
+  const { t } = useTranslation()
+  const { enqueueSnackbar } = useSnackbar()
 
   return (
-    <Query query={getResources}>
+    <Query query={getResourcesByType(type, country, city)}>
       {({ loading, error, data }) => {
         if (loading) { return <Loader /> }
-        if (error) { return <div>Error :(</div> }
+        if (error) { enqueueSnackbar(t('common.errors.global'), { variant: 'error' }) }
 
         return (
           <ResourceList items={data.resource} />
