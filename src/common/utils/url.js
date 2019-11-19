@@ -20,3 +20,15 @@ export function downloadFromUrl(url, name = 'file.csv') {
   link.click()
   document.body.removeChild(link)
 }
+
+export function rawHtml(text) {
+  return text && text.replace(/<\/?[^>]+(>|$)/g, '') // strip tags
+}
+
+export function clean(text) {
+  return text && text.toLowerCase().replace(/[ ']+/g, '')
+}
+
+export function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}

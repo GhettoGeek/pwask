@@ -5,7 +5,7 @@ import { useSnackbar } from 'notistack'
 import { useTranslation } from 'react-i18next'
 import { getResourcesByType } from '../resourceService'
 import ResourceList from '../components/ResourceList'
-import { Loader } from '../../../../common/components'
+import { Loader, Typography } from '../../../../common/components'
 
 function ResourceListContainer({ type, country, city }) {
   const { t } = useTranslation()
@@ -17,9 +17,9 @@ function ResourceListContainer({ type, country, city }) {
         if (loading) { return <Loader /> }
         if (error) { enqueueSnackbar(t('common.errors.global'), { variant: 'error' }) }
 
-        return (
+        return data.resource.length > 0 ? (
           <ResourceList items={data.resource} />
-        )
+        ) : <Typography variant="body1">{t('common.noResults')}</Typography>
       }}
     </Query>
   )

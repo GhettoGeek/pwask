@@ -1,37 +1,20 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { Grid } from '@material-ui/core'
 import MainTemplate from '../../common/templates/MainTemplate'
 import {
-  Header, Hero, Icon,
+  Header, Hero,
 } from '../../common/components'
 import UserMenuContainer from '../modules/user/containers/UserMenuContainer'
 import ResourceListContainer from '../modules/resource/containers/ResourceListContainer'
 import ResourceSearchBoxContainer from '../modules/resource/containers/ResourceSearchBoxContainer'
 import config from '../appConfig'
+import sideMenuItems from '../sideMenuItems'
 
 function HomePage() {
-  const { t } = useTranslation()
-  const sideMenuItems = [
-    {
-      label: t('sideMenu.item1'),
-      icon: <Icon type="material-ui" name="edit" />,
-      link: '#',
-    },
-    {
-      label: t('sideMenu.item2'),
-      icon: <Icon type="material-ui" name="edit" />,
-      link: '#',
-    },
-  ]
-
   return (
     <MainTemplate
       header={(
-        <Header
-          title={t('header.title')}
-          sideMenuItems={sideMenuItems}
-        >
+        <Header sideMenuItems={sideMenuItems}>
           <UserMenuContainer />
         </Header>
       )}

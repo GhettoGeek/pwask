@@ -1,21 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
 import {
   List, ListItem, ListItemIcon, ListItemText,
 } from '@material-ui/core'
 import Link from '../Link'
+import Icon from '../Icon'
 
 function EnhancedList({ items }) {
+  const { t } = useTranslation()
+
   return (
     <List>
       {
         items.map((item) => (
-          <ListItem button key={item.label}>
+          <ListItem button key={t(item.label)}>
             {item.icon && (
-              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemIcon>
+                <Icon name={item.icon} />
+              </ListItemIcon>
             )}
             <Link to={item.link}>
-              <ListItemText primary={item.label} />
+              <ListItemText primary={t(item.label)} />
             </Link>
           </ListItem>
         ))

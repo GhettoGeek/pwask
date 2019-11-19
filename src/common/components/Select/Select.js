@@ -3,10 +3,13 @@ import PropTypes from 'prop-types'
 import { Select } from '@material-ui/core'
 
 function EnhancedSelect({
-  id, items, ...props
+  id, items, handleChange, ...props
 }) {
   const [value, setValue] = React.useState('')
-  const handleChange = (event) => setValue(event.target.value)
+  const onChange = (event) => {
+    setValue(event.target.value)
+    handleChange(event)
+  }
 
   return (
     <Select
@@ -14,7 +17,7 @@ function EnhancedSelect({
       id={id}
       variant="outlined"
       value={value}
-      onChange={handleChange}
+      onChange={onChange}
       {...props}
     >
       {items.map((item) => (
@@ -32,11 +35,13 @@ EnhancedSelect.propTypes = {
     label: PropTypes.string,
     value: PropTypes.string,
   })),
+  handleChange: PropTypes.func,
 }
 
 EnhancedSelect.defaultProps = {
   id: 'standard-select-native',
   items: [],
+  handleChange: () => {},
 }
 
 export default EnhancedSelect

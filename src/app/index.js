@@ -1,16 +1,16 @@
 import React, { Suspense } from 'react'
-import {
-  BrowserRouter, Switch, Route, Redirect,
-} from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import { SnackbarProvider } from 'notistack'
-import storage from '../common/utils/storage'
 import appConfig from './appConfig'
 import { AppContextProvider } from './appContext'
 import { AuthContextProvider } from './modules/auth'
-import HomePage from './pages/HomePage'
-import ErrorPage from './pages/ErrorPage'
+import {
+  HomePage,
+  ResourceListPage,
+  ErrorPage,
+} from './pages'
 
 function onRedirectCallback(appState) {
   window.history.replaceState(
@@ -40,26 +40,9 @@ function App() {
             <SnackbarProvider maxSnack={3}>
               <BrowserRouter>
                 <Switch>
-                  <Route path="/" exact>
-                    <HomePage />
-                  </Route>
-                  <Route path="/login">
-                    {() => {
-                      window.location = appConfig.loginUrl
-
-                      return null
-                    }}
-                  </Route>
-                  <Route path="/logout">
-                    {() => {
-                      storage.remove('auth')
-
-                      return <Redirect to="/" />
-                    }}
-                  </Route>
-                  <Route path="*">
-                    <ErrorPage />
-                  </Route>
+                  <Route path="/" component={HomePage} exact />
+                  <Route path="/:type/:country/:city" component={ResourceListPage} exact />
+                  <Route path="*" component={ErrorPage} />
                 </Switch>
               </BrowserRouter>
             </SnackbarProvider>

@@ -1,4 +1,5 @@
 import { gql } from 'apollo-boost'
+import { urlUtil } from '../../../common/utils'
 
 export function getResourceById(id) {
   const query = gql`
@@ -22,9 +23,9 @@ export function getResourcesByType(type, country, city) {
   const query = gql`
     query resourceList {
       resource(where: {
-        type: { _eq: "${type}" },
-        country: { _eq: "${country}" },
-        city: { _eq: "${city}" }
+        type: { _eq: "${urlUtil.capitalize(type)}" },
+        country: { _eq: "${urlUtil.capitalize(country)}" },
+        city: { _eq: "${urlUtil.capitalize(city)}" }
       }) {
         id
         name

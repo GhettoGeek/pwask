@@ -15,7 +15,8 @@
   },
   "search": {
     "selectResource": "Select resource",
-    "chooseLocation": "Choose a location"
+    "chooseLocation": "Choose a location",
+    "mustChooseLocation": "Please choose a location"
   },
   "footer": {
     "title": "Pwask ©"
@@ -34,6 +35,7 @@
     "recents": "Recents",
     "favorites": "Favorites",
     "nearby": "Nearby",
+    "noResults": "No resources found near your location...",
     "errors": {
       "global": "Oops... Something wrong happened. Please try again later.",
       "geolocationNotAvailable": "geolocation is not available"

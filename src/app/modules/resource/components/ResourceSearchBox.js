@@ -1,8 +1,6 @@
 import React from 'react'
-import merge from 'lodash/merge'
 import PropTypes from 'prop-types'
-import { Redirect } from 'react-router-dom'
-import { useSnackbar } from 'notistack'
+import merge from 'lodash/merge'
 import throttle from 'lodash/throttle'
 import parse from 'autosuggest-highlight/parse'
 import { useTranslation } from 'react-i18next'
@@ -46,15 +44,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function ResourceSearchBox({ resourceTypes }) {
+function ResourceSearchBox({ resourceTypes, handleSubmit }) {
   const classes = useStyles()
   const { t } = useTranslation()
-  const [resourceType, setResourceType] = React.useState(null)
   const [position, setPosition] = React.useState({})
   const [inputValue, setInputValue] = React.useState(null)
   const [options, setOptions] = React.useState([])
   const loaded = React.useRef(false)
-  const { enqueueSnackbar } = useSnackbar()
 
   if (typeof window !== 'undefined' && !loaded.current) {
     if (!document.querySelector('#google-maps')) {
@@ -72,10 +68,6 @@ function ResourceSearchBox({ resourceTypes }) {
     setInputValue(event.target.value)
   }
 
-  const handleTypeChange = (event) => {
-    setResourceType(event.target.value)
-  }
-
   const handleLocationClick = () => {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(({ coords }) => {
@@ -91,21 +83,15 @@ function ResourceSearchBox({ resourceTypes }) {
               setPosition({
                 latitude,
                 longitude,
-                country: currentCountry,
                 city: currentCity,
+                country: currentCountry,
               })
             }
           }
         })
       })
-    } else {
-      enqueueSnackbar(t('common.errors.geolocationNotAvailable'), { variant: 'error' })
     }
   }
-
-  const handleSubmit = () => (
-    <Redirect to={`/${position.country}/${position.city}?type=${resourceType}&position=${position.latitude},${position.longitude}`} />
-  )
 
   const fetch = React.useMemo(() => throttle((input, callback) => {
     autocompleteService.current.getPlacePredictions(input, callback)
@@ -140,14 +126,18 @@ function ResourceSearchBox({ resourceTypes }) {
 
   return (
     <Paper className={classes.root}>
-      <form className={classes.container} noValidate autoComplete="off">
+      <form
+        className={classes.container}
+        noValidate
+        autoComplete="off"
+        onSubmit={(event) => handleSubmit(event, position)}
+      >
         <Grid container justify="center" alignItems="center" spacing={2}>
           <Grid item xs={12} sm={4}>
             <Select
               fullWidth
               id="resource-type"
               items={resourceTypes}
-              onChange={handleTypeChange}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -216,10 +206,10 @@ function ResourceSearchBox({ resourceTypes }) {
           </Grid>
           <Grid item xs={12} sm={2}>
             <Button
+              type="submit"
               color="primary"
               fullWidth
               className={classes.button}
-              onClick={handleSubmit}
             >
               {t('common.search')}
             </Button>
@@ -232,6 +222,7 @@ function ResourceSearchBox({ resourceTypes }) {
 
 ResourceSearchBox.propTypes = {
   resourceTypes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 }
 
 export default ResourceSearchBox
