@@ -46,8 +46,8 @@
     "dev": "parcel index.html --https",
     "lint": "eslint src",
     "test:unit": "jest --coverage",
-    "test:e2e": "testcafe chrome tests/*.js",
-    "test:e2e:ci": "testcafe \"firefox:headless\" tests/*.js --app \"npm run serve\"",
+    "test:e2e": "testcafe chrome tests/e2e --skip-js-errors",
+    "test:e2e:ci": "testcafe chrome:headless tests/e2e",
     "build": "NODE_ENV=production parcel build index.html",
     "start": "serve -s dist"
   },

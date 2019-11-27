@@ -23,6 +23,7 @@ jobs:
         yarn install
         yarn build
         yarn lint
-        yarn test
+        yarn test:unit
+        yarn test:e2e:ci
       env:
         CI: true

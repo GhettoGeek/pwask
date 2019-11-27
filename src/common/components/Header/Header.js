@@ -21,7 +21,7 @@ function Header({ title, sideMenuItems, children }) {
   const classes = useStyles()
 
   return (
-    <header className={classes.root}>
+    <header id="header" className={classes.root}>
       <AppBar position="static" color="primary">
         <Toolbar>
           <SideMenu items={sideMenuItems} />

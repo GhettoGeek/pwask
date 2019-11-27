@@ -38,3 +38,6 @@ jobs:
 
       # run unit tests!
       - run: yarn test:unit
+
+      # run end-to-end tests!
+      - run: yarn test:e2e:ci
