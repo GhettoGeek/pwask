@@ -5,7 +5,12 @@ import { Link } from '@material-ui/core'
 
 function EnhancedLink({ to, children, ...props }) {
   return (
-    <Link component={RouterLink} to={to} {...props}>
+    <Link
+      component={RouterLink}
+      underline="none"
+      to={to}
+      {...props}
+    >
       {children}
     </Link>
   )
@@ -15,7 +20,7 @@ EnhancedLink.propTypes = {
   to: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.shape(),
+    PropTypes.node,
   ]),
 }
 

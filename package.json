@@ -46,8 +46,8 @@
     "dev": "parcel index.html --https",
     "lint": "eslint src",
     "test:unit": "jest --coverage",
-    "test:e2e": "testcafe chrome tests/e2e --skip-js-errors",
-    "test:e2e:ci": "testcafe chrome:headless tests/e2e",
+    "test:e2e": "testcafe chrome tests/e2e",
+    "test:e2e:ci": "testcafe chrome:headless tests/e2e --skip-js-errors",
     "build": "NODE_ENV=production parcel build index.html",
     "start": "serve -s dist"
   },
@@ -85,6 +85,7 @@
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
     "cloudinary-react": "^1.2.1",
+    "clsx": "^1.0.4",
     "core-js": "^3.4.0",
     "graphql": "^14.5.8",
     "i18next": "^19.0.0",
@@ -98,6 +99,7 @@
     "react-dom": "^16.11.0",
     "react-i18next": "^11.0.0",
     "react-router-dom": "^5.1.2",
+    "react-swipeable-views": "^0.13.3",
     "regenerator-runtime": "^0.13.3",
     "serve": "^11.2.0"
   }

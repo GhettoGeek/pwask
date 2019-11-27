@@ -17,7 +17,7 @@ Based on [Atomic Design](http://atomicdesign.bradfrost.com/chapter-2/) methodolo
 Please respect theses [clean code concepts](https://github.com/ryanmcdermott/clean-code-javascript).
 
 ## Requirements
-[Node.js](https://nodejs.org/), [Yarn](https://yarnpkg.com/en/docs/install), [Heroku](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+[Node.js](https://nodejs.org/), [Yarn](https://yarnpkg.com/en/docs/install)
 
 ## Getting Started
 

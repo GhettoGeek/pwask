@@ -9,6 +9,7 @@ import { AuthContextProvider } from './modules/auth'
 import {
   HomePage,
   ResourceListPage,
+  ResourceDetailsPage,
   ErrorPage,
 } from './pages'
 
@@ -42,6 +43,7 @@ function App() {
                 <Switch>
                   <Route path="/" component={HomePage} exact />
                   <Route path="/:type/:country/:city" component={ResourceListPage} exact />
+                  <Route path="/resource/:id" component={ResourceDetailsPage} exact />
                   <Route path="*" component={ErrorPage} />
                 </Switch>
               </BrowserRouter>

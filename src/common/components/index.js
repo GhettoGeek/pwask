@@ -9,6 +9,7 @@ import Icon from './Icon'
 import Link from './Link'
 import List from './List'
 import Loader from './Loader'
+import Pagination from './Pagination'
 import Select from './Select'
 import SideMenu from './SideMenu'
 import Textfield from './Textfield'
@@ -26,6 +27,7 @@ export {
   Link,
   List,
   Loader,
+  Pagination,
   Select,
   SideMenu,
   Textfield,

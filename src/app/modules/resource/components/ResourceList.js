@@ -30,6 +30,7 @@ function ResourceList({ items }) {
       }) => (
         <Grid item key={id} xs={12} sm={4}>
           <Card
+            id={id}
             title={name}
             image={mainImage || '/images/placeholder.jpg'}
             description={description}
