@@ -8,6 +8,7 @@ import {
 import {
   Favorite as FavoriteIcon,
   Share as ShareIcon,
+  Directions as DirectionIcon,
 } from '@material-ui/icons'
 import SwipeableViews from 'react-swipeable-views'
 import Typography from '../Typography'
@@ -24,7 +25,7 @@ const useStyles = makeStyles({
 })
 
 function EnhancedCard({
-  id, title, description, images,
+  id, title, description, images, address,
 }) {
   const { t } = useTranslation()
   const classes = useStyles()
@@ -63,10 +64,22 @@ function EnhancedCard({
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton aria-label={t('common.addToFavorite')}>
+        <IconButton
+          aria-label={t('common.getDirection')}
+          onClick={() => { window.location.href = `https://maps.google.com/maps?daddr=${address}` }}
+        >
+          <DirectionIcon />
+        </IconButton>
+        <IconButton
+          aria-label={t('common.addToFavorite')}
+          onClick={() => {}}
+        >
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label={t('common.share')}>
+        <IconButton
+          aria-label={t('common.share')}
+          onClick={() => {}}
+        >
           <ShareIcon />
         </IconButton>
       </CardActions>
@@ -82,6 +95,7 @@ EnhancedCard.propTypes = {
     label: PropTypes.string,
     src: PropTypes.string,
   })),
+  address: PropTypes.string,
 }
 
 EnhancedCard.defaultProps = {
@@ -92,6 +106,7 @@ EnhancedCard.defaultProps = {
       src: '/images/placeholder.jpg',
     },
   ],
+  address: '',
 }
 
 export default EnhancedCard

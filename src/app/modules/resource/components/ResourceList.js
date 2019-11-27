@@ -25,15 +25,22 @@ function ResourceList({ items }) {
       {items.map(({
         id,
         name,
-        mainImage,
+        images,
         description,
+        address,
       }) => (
         <Grid item key={id} xs={12} sm={4}>
           <Card
             id={id}
             title={name}
-            image={mainImage || '/images/placeholder.jpg'}
+            images={images || [
+              {
+                url: '/images/placeholder.jpg',
+                label: 'default',
+              },
+            ]}
             description={description}
+            address={address}
           />
         </Grid>
       ))}
@@ -47,6 +54,7 @@ ResourceList.propTypes = {
     name: PropTypes.string,
     mainImage: PropTypes.string,
     description: PropTypes.string,
+    address: PropTypes.string,
   })).isRequired,
 }
 

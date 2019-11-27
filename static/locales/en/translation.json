@@ -34,6 +34,7 @@
     "search": "Search",
     "recents": "Recents",
     "favorites": "Favorites",
+    "getDirection": "Get direction",
     "nearby": "Nearby",
     "noResults": "No resources found near your location...",
     "errors": {

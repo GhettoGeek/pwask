@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 function ResourceDetails({ data }) {
   const classes = useStyles()
   const {
-    id, name, images, description, country, city,
+    id, name, images, description, country, city, address,
   } = data
 
   return (
@@ -38,6 +38,7 @@ function ResourceDetails({ data }) {
           description={description}
           country={country}
           city={city}
+          address={address}
         />
       </Grid>
     </Grid>
@@ -52,6 +53,7 @@ ResourceDetails.propTypes = {
     description: PropTypes.string,
     country: PropTypes.string,
     city: PropTypes.string,
+    address: PropTypes.string,
   }).isRequired,
 }
 
