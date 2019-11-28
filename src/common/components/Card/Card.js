@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
+import { useModal } from 'react-modal-hook'
 import { makeStyles } from '@material-ui/core/styles'
 import {
   Card, CardActions, CardContent, CardMedia, IconButton,
@@ -14,6 +15,8 @@ import SwipeableViews from 'react-swipeable-views'
 import Typography from '../Typography'
 import Pagination from '../Pagination'
 import Link from '../Link'
+import Dialog from '../Dialog'
+import ShareButtons from '../ShareButtons'
 
 const useStyles = makeStyles({
   card: {
@@ -25,12 +28,17 @@ const useStyles = makeStyles({
 })
 
 function EnhancedCard({
-  id, title, description, images, address,
+  id, title, description, images, getDirectionUrl,
 }) {
   const { t } = useTranslation()
   const classes = useStyles()
   const [currentIndex, setCurrentIndex] = React.useState(0)
   const handleChangeIndex = (value) => setCurrentIndex(value)
+  const [showShareDialog, closeShareDialog] = useModal(({ in: open = true }) => (
+    <Dialog onClose={closeShareDialog} open={open}>
+      <ShareButtons />
+    </Dialog>
+  ))
 
   return (
     <Card className={classes.card}>
@@ -66,7 +74,7 @@ function EnhancedCard({
       <CardActions>
         <IconButton
           aria-label={t('common.getDirection')}
-          onClick={() => { window.location.href = `https://maps.google.com/maps?daddr=${address}` }}
+          onClick={() => { window.location.href = getDirectionUrl }}
         >
           <DirectionIcon />
         </IconButton>
@@ -78,7 +86,7 @@ function EnhancedCard({
         </IconButton>
         <IconButton
           aria-label={t('common.share')}
-          onClick={() => {}}
+          onClick={showShareDialog}
         >
           <ShareIcon />
         </IconButton>
@@ -95,18 +103,17 @@ EnhancedCard.propTypes = {
     label: PropTypes.string,
     src: PropTypes.string,
   })),
-  address: PropTypes.string,
+  getDirectionUrl: PropTypes.string.isRequired,
 }
 
 EnhancedCard.defaultProps = {
-  description: 'lorem ipsum dolor sit amet',
+  description: '',
   images: [
     {
-      label: '',
+      label: 'default',
       src: '/images/placeholder.jpg',
     },
   ],
-  address: '',
 }
 
 export default EnhancedCard

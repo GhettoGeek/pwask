@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import appConfig from '../../../appConfig'
 import { Card } from '../../../../common/components'
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +39,7 @@ function ResourceDetails({ data }) {
           description={description}
           country={country}
           city={city}
-          address={address}
+          getDirectionUrl={`${appConfig.google.getDirectionUrl}${address}`}
         />
       </Grid>
     </Grid>

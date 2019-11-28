@@ -28,6 +28,11 @@
       "dashboard": "Dashboard"
     }
   },
+  "share": {
+    "url": "https://pwask.netlify.com",
+    "title": "Discover progressive web app starter kit",
+    "description": "Hey buddy, I want to share with you this cool stuff!"
+  },
   "common": {
     "addToFavorite": "Add to favorites",
     "share": "Share",

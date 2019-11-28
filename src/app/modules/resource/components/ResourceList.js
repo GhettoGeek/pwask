@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import appConfig from '../../../appConfig'
 import { Card } from '../../../../common/components'
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +41,7 @@ function ResourceList({ items }) {
               },
             ]}
             description={description}
-            address={address}
+            getDirectionUrl={`${appConfig.google.getDirectionUrl}${address}`}
           />
         </Grid>
       ))}
@@ -52,7 +53,7 @@ ResourceList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
-    mainImage: PropTypes.string,
+    images: PropTypes.string,
     description: PropTypes.string,
     address: PropTypes.string,
   })).isRequired,

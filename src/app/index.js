@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import { SnackbarProvider } from 'notistack'
+import { ModalProvider } from 'react-modal-hook'
 import appConfig from './appConfig'
 import { AppContextProvider } from './appContext'
 import { AuthContextProvider } from './modules/auth'
@@ -39,14 +40,16 @@ function App() {
         <AppContextProvider>
           <ApolloProvider client={client}>
             <SnackbarProvider maxSnack={3}>
-              <BrowserRouter>
-                <Switch>
-                  <Route path="/" component={HomePage} exact />
-                  <Route path="/:type/:country/:city" component={ResourceListPage} exact />
-                  <Route path="/resource/:id" component={ResourceDetailsPage} exact />
-                  <Route path="*" component={ErrorPage} />
-                </Switch>
-              </BrowserRouter>
+              <ModalProvider>
+                <BrowserRouter>
+                  <Switch>
+                    <Route path="/" component={HomePage} exact />
+                    <Route path="/:type/:country/:city" component={ResourceListPage} exact />
+                    <Route path="/resource/:id" component={ResourceDetailsPage} exact />
+                    <Route path="*" component={ErrorPage} />
+                  </Switch>
+                </BrowserRouter>
+              </ModalProvider>
             </SnackbarProvider>
           </ApolloProvider>
         </AppContextProvider>

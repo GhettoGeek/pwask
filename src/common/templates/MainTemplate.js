@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { SnackbarProvider } from 'notistack'
 import { CssBaseline } from '@material-ui/core'
 import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles'
 import { styled } from '../utils/style'
@@ -67,13 +66,11 @@ const PageTemplate = ({
   <Wrapper>
     <GlobalCss />
     <CssBaseline />
-    <SnackbarProvider>
-      <MuiThemeProvider theme={muiTheme}>
-        <HeaderWrapper>{header}</HeaderWrapper>
-        <Content>{children}</Content>
-        <FooterWrapper>{footer}</FooterWrapper>
-      </MuiThemeProvider>
-    </SnackbarProvider>
+    <MuiThemeProvider theme={muiTheme}>
+      <HeaderWrapper>{header}</HeaderWrapper>
+      <Content>{children}</Content>
+      <FooterWrapper>{footer}</FooterWrapper>
+    </MuiThemeProvider>
   </Wrapper>
 )
 

@@ -1,6 +1,7 @@
 import Breadcrumb from './Breadcrumb'
 import Button from './Button'
 import Card from './Card'
+import Dialog from './Dialog'
 import Divider from './Divider'
 import Footer from './Footer'
 import Header from './Header'
@@ -19,6 +20,7 @@ export {
   Breadcrumb,
   Button,
   Card,
+  Dialog,
   Divider,
   Footer,
   Header,
