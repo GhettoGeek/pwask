@@ -76,7 +76,7 @@
     "testcafe": "^1.6.0"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.5.0",
+    "@auth0/auth0-spa-js": "^1.6.0",
     "@material-ui/core": "^4.5.2",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/lab": "^4.0.0-alpha.30",
