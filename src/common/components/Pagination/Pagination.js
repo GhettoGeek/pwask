@@ -35,7 +35,7 @@ function Pagination({ currentIndex, dots, onChangeIndex }) {
   const classes = useStyles()
   const handleClick = (event, index) => onChangeIndex(index)
 
-  return (
+  return dots > 1 ? (
     <div className={classes.root}>
       {[...Array(dots)].map((dot, index) => (
         <button
@@ -52,7 +52,7 @@ function Pagination({ currentIndex, dots, onChangeIndex }) {
         </button>
       ))}
     </div>
-  )
+  ) : null
 }
 
 Pagination.propTypes = {

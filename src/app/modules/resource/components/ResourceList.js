@@ -34,12 +34,7 @@ function ResourceList({ items }) {
           <Card
             id={id}
             title={name}
-            images={images || [
-              {
-                url: '/images/placeholder.jpg',
-                label: 'default',
-              },
-            ]}
+            images={images}
             description={description}
             getDirectionUrl={`${appConfig.google.getDirectionUrl}${address}`}
           />
@@ -53,7 +48,10 @@ ResourceList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
-    images: PropTypes.string,
+    images: PropTypes.arrayOf(PropTypes.shape({
+      url: PropTypes.string,
+      title: PropTypes.string,
+    })),
     description: PropTypes.string,
     address: PropTypes.string,
   })).isRequired,

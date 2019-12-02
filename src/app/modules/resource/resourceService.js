@@ -10,8 +10,11 @@ export function getResourceById(id) {
         id
         name
         description
-        country
-        city
+        address
+        images {
+          url
+          title
+        }
       }
     }
   `
@@ -30,6 +33,11 @@ export function getResourcesByType(type, country, city) {
         id
         name
         description
+        address
+        images {
+          url
+          title
+        }
       }
     }
   `

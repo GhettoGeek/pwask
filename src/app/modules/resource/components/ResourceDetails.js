@@ -30,12 +30,7 @@ function ResourceDetails({ data }) {
         <Card
           id={Number(id)}
           title={name}
-          images={images || [
-            {
-              url: '/images/placeholder.jpg',
-              label: 'default',
-            },
-          ]}
+          images={images}
           description={description}
           country={country}
           city={city}
@@ -50,7 +45,10 @@ ResourceDetails.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
-    images: PropTypes.string,
+    images: PropTypes.arrayOf(PropTypes.shape({
+      url: PropTypes.string,
+      title: PropTypes.string,
+    })),
     description: PropTypes.string,
     country: PropTypes.string,
     city: PropTypes.string,

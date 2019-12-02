@@ -19,7 +19,7 @@ import Dialog from '../Dialog'
 import ShareButtons from '../ShareButtons'
 
 const useStyles = makeStyles({
-  card: {
+  images: {
     position: 'relative',
   },
   media: {
@@ -42,24 +42,27 @@ function EnhancedCard({
 
   return (
     <Card className={classes.card}>
-      <SwipeableViews
-        enableMouseEvents
-        onChangeIndex={handleChangeIndex}
-      >
-        {images.map((image, index) => (
-          <CardMedia
-            key={index}
-            image={image.src}
-            title={image.label}
-            className={classes.media}
-          />
-        ))}
+      <div className={classes.images}>
+        <SwipeableViews
+          enableMouseEvents
+          index={currentIndex}
+          onChangeIndex={handleChangeIndex}
+        >
+          {images.map((image, index) => (
+            <CardMedia
+              key={index}
+              image={image.url}
+              title={image.title}
+              className={classes.media}
+            />
+          ))}
+        </SwipeableViews>
         <Pagination
-          dots={images.length + 1}
+          dots={images.length}
           currentIndex={currentIndex}
           onChangeIndex={handleChangeIndex}
         />
-      </SwipeableViews>
+      </div>
       <CardContent>
         <Link to={`/resource/${id}`}>
           <Typography gutterBottom variant="h5" component="h2">
@@ -100,8 +103,8 @@ EnhancedCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    src: PropTypes.string,
+    url: PropTypes.string,
+    title: PropTypes.string,
   })),
   getDirectionUrl: PropTypes.string.isRequired,
 }
