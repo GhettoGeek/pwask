@@ -7,9 +7,6 @@ import SideMenu from '../SideMenu'
 import Typography from '../Typography'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
   title: {
     flexGrow: 1,
     marginLeft: theme.spacing(2),
@@ -21,23 +18,25 @@ function Header({ title, sideMenuItems, children }) {
   const classes = useStyles()
 
   return (
-    <header id="header" className={classes.root}>
-      <AppBar position="static" color="primary">
-        <Toolbar>
-          <SideMenu items={sideMenuItems} />
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}
-          >
-            {t(title)}
-          </Typography>
-          {children}
-        </Toolbar>
-      </AppBar>
-    </header>
+    <AppBar
+      id="header"
+      position="fixed"
+      color="primary"
+    >
+      <Toolbar>
+        <SideMenu items={sideMenuItems} />
+        <Typography
+          component="h1"
+          variant="h6"
+          color="inherit"
+          noWrap
+          className={classes.title}
+        >
+          {t(title)}
+        </Typography>
+        {children}
+      </Toolbar>
+    </AppBar>
   )
 }
 

@@ -19,7 +19,7 @@ function HomePage() {
         </Header>
       )}
     >
-      <Grid container justify="center" alignItems="center">
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <Hero backgroundImage={`${config.cloudinary.apiUrl}/c_scale,w_800/ofzmjd.jpg`}>
             <Grid item sm={8} style={{ margin: '0 auto' }}>

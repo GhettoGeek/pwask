@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Grid } from '@material-ui/core'
 import MainTemplate from '../../common/templates/MainTemplate'
 import { Header } from '../../common/components'
 import UserMenuContainer from '../modules/user/containers/UserMenuContainer'
@@ -28,15 +27,11 @@ function ResourceListPage({ match, location }) {
         </Header>
       )}
     >
-      <Grid container justify="center" alignItems="center">
-        <Grid item xs={12}>
-          <ResourceListContainer
-            type={type}
-            country={country}
-            city={city}
-          />
-        </Grid>
-      </Grid>
+      <ResourceListContainer
+        type={type}
+        country={country}
+        city={city}
+      />
     </MainTemplate>
   )
 }

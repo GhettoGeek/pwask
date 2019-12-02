@@ -1,19 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
 import appConfig from '../../../appConfig'
 import { Card } from '../../../../common/components'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(3),
-    paddingBottom: theme.spacing(14),
-  },
-}))
-
 function ResourceDetails({ data }) {
-  const classes = useStyles()
   const {
     id, name, images, description, country, city, address,
   } = data
@@ -24,7 +15,6 @@ function ResourceDetails({ data }) {
       justify="center"
       alignItems="center"
       spacing={2}
-      className={classes.root}
     >
       <Grid item xs={12}>
         <Card

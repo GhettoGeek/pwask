@@ -18,28 +18,25 @@ const useStyles = makeStyles((theme) => ({
 const BreadCrumb = ({ location }) => {
   const classes = useStyles()
   const crumbs = location.pathname.split('/').filter(Boolean)
-  const crumbsLength = crumbs.length
 
-  return (
+  return crumbs.length > 0 ? (
     <Breadcrumbs aria-label="Breadcrumb">
-      <Link color="inherit" href="/">
+      <Link color="inherit" to="/">
         <HomeIcon className={classes.icon} />
       </Link>
       {
         crumbs.map((item, index) => {
-          if (crumbsLength === index + 1) {
-            return <Typography color="primary" key={index}>{item}</Typography>
+          if (crumbs.length === index + 1) {
+            return <Typography variant="body1" key={index}>{item}</Typography>
           }
 
-          return (
-            <Link color="prmary" href={`/${item}`} key={index}>
-              {item}
-            </Link>
-          )
+          const link = crumbs.slice(0, index + 1).join('/')
+
+          return <Link to={`/${link}`} key={index}>{item}</Link>
         })
       }
     </Breadcrumbs>
-  )
+  ) : null
 }
 
 BreadCrumb.propTypes = {

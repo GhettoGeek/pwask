@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { CssBaseline } from '@material-ui/core'
-import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles'
-import { styled } from '../utils/style'
-import { Footer, Header } from '../components'
+import { CssBaseline, Grid } from '@material-ui/core'
+import {
+  createMuiTheme, MuiThemeProvider, withStyles, makeStyles,
+} from '@material-ui/core/styles'
+import { Footer, Header, Breadcrumb } from '../components'
 
 const muiTheme = createMuiTheme({
   palette: {
@@ -32,47 +33,47 @@ const muiTheme = createMuiTheme({
   },
 })
 
-const GlobalCss = withStyles({
+const GlobalCss = withStyles((theme) => ({
   '@global': {
     'font-family': '"Roboto", "Helvetica", "Arial", sans-serif',
+    body: {
+      backgroundColor: theme.palette.common.grey,
+    },
   },
-})(() => null)
+}))(() => null)
 
-const Wrapper = styled('div')((theme) => ({
-  backgroundColor: theme.palette.common.grey,
+const useStyles = makeStyles((theme) => ({
+  content: {
+    marginTop: theme.spacing(7),
+    marginBottom: theme.spacing(9),
+    paddingTop: theme.spacing(2),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+  },
 }))
 
-const HeaderWrapper = styled('div')({
-  position: 'absolute',
-  left: 0,
-  top: 0,
-  width: '100%',
-  zIndex: 20,
-})
+function PageTemplate({ header, children, footer }) {
+  const classes = useStyles()
 
-const Content = styled('div')((theme) => ({
-  marginTop: theme.spacing(12),
-}))
-
-const FooterWrapper = styled('footer')({
-  marginTop: 'auto',
-})
-
-const PageTemplate = ({
-  header,
-  children,
-  footer,
-}) => (
-  <Wrapper>
-    <GlobalCss />
-    <CssBaseline />
-    <MuiThemeProvider theme={muiTheme}>
-      <HeaderWrapper>{header}</HeaderWrapper>
-      <Content>{children}</Content>
-      <FooterWrapper>{footer}</FooterWrapper>
-    </MuiThemeProvider>
-  </Wrapper>
-)
+  return (
+    <>
+      <GlobalCss />
+      <CssBaseline />
+      <MuiThemeProvider theme={muiTheme}>
+        {header}
+        <Grid
+          container
+          id="content"
+          className={classes.content}
+        >
+          <Grid item xs={12}><Breadcrumb /></Grid>
+          <Grid item xs={12}>{children}</Grid>
+        </Grid>
+        {footer}
+      </MuiThemeProvider>
+    </>
+  )
+}
 
 PageTemplate.propTypes = {
   header: PropTypes.shape(),

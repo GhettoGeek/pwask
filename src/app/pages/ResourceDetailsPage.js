@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Grid } from '@material-ui/core'
 import MainTemplate from '../../common/templates/MainTemplate'
 import { Header } from '../../common/components'
 import UserMenuContainer from '../modules/user/containers/UserMenuContainer'
@@ -18,11 +17,7 @@ function ResourceDetailsPage({ match }) {
         </Header>
       )}
     >
-      <Grid container justify="center" alignItems="center">
-        <Grid item xs={12}>
-          <ResourceDetailsContainer id={Number(id)} />
-        </Grid>
-      </Grid>
+      <ResourceDetailsContainer id={Number(id)} />
     </MainTemplate>
   )
 }
