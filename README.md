@@ -17,7 +17,7 @@ Based on [Atomic Design](http://atomicdesign.bradfrost.com/chapter-2/) methodolo
 Please respect theses [clean code concepts](https://github.com/ryanmcdermott/clean-code-javascript).
 
 ## Requirements
-[Node.js](https://nodejs.org/), [Yarn](https://yarnpkg.com/en/docs/install)
+[Node.js](https://nodejs.org/), [Yarn](https://yarnpkg.com/en/docs/install), [Docker](https://www.docker.com/get-started)
 
 ## Getting Started
 
@@ -29,6 +29,12 @@ yarn install
 Start the development server (changes will now update live in browser)
 ```
 yarn dev
+```
+
+Start the Hasura GraphQL
+```
+cd hasura
+hasura console
 ```
 
 To view the project, go to: [https://localhost:1234/](https://localhost:1234/)
@@ -56,4 +62,23 @@ yarn build
 Serve builded static files
 ```
 yarn serve
+```
+
+Export the Hasura GraphQL schema
+```
+sudo npm install -g apollo
+apollo schema:download --endpoint https://my-graphql-engine.com/v1/graphql
+```
+
+Export data as SQL
+```
+curl -L https://cli.hasura.io/install.sh | bash
+hasura microservice port-forward postgres -n hasura --local-port 6432
+pg_dump -U admin hasuradb --host=localhost --port=6432 > backup.sql
+```
+
+Import schema, data and create Hasura configuration in one command
+```
+sudo npm install -g json2graphql
+json2graphql https://<app-name>.herokuapp.com --db=./path/to/db.json 
 ```
