@@ -1,49 +1,55 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
+import { useTranslation } from 'react-i18next'
 import appConfig from '../../../appConfig'
-import { Card } from '../../../../common/components'
+import { Card, Loader, Typography } from '../../../../common/components'
 
-function ResourceDetails({ data }) {
-  const {
-    id, name, images, description, country, city, address,
-  } = data
+function ResourceDetails({ data, loading }) {
+  const { t } = useTranslation()
 
-  return (
-    <Grid
-      container
-      justify="center"
-      alignItems="center"
-      spacing={2}
-    >
-      <Grid item xs={12}>
-        <Card
-          id={Number(id)}
-          title={name}
-          images={images}
-          description={description}
-          country={country}
-          city={city}
-          getDirectionUrl={`${appConfig.google.getDirectionUrl}${address}`}
-        />
+  if (loading) { return <Loader /> }
+
+  if (data && data.resource) {
+    const {
+      id, name, images, description, country, city, address,
+    } = data.resource[0]
+
+    return (
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <Grid item xs={12}>
+          <Card
+            id={Number(id)}
+            title={name}
+            images={images}
+            description={description}
+            country={country}
+            city={city}
+            getDirectionUrl={`${appConfig.google.getDirectionUrl}${address}`}
+          />
+        </Grid>
       </Grid>
-    </Grid>
-  )
+    )
+  }
+
+  return <Typography variant="body1">{t('common.noResults')}</Typography>
 }
 
 ResourceDetails.propTypes = {
   data: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    images: PropTypes.arrayOf(PropTypes.shape({
-      url: PropTypes.string,
-      title: PropTypes.string,
-    })),
-    description: PropTypes.string,
-    country: PropTypes.string,
-    city: PropTypes.string,
-    address: PropTypes.string,
-  }).isRequired,
+    resource: PropTypes.arrayOf(PropTypes.shape()),
+  }),
+  loading: PropTypes.bool,
+}
+
+ResourceDetails.defaultProps = {
+  data: null,
+  loading: true,
 }
 
 export default ResourceDetails

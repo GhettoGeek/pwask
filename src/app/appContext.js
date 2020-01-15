@@ -24,5 +24,5 @@ export const useAppContext = () => React.useContext(AppContext)
 export const withAppContext = (Component) => ({ ...props }) => {
   const [state, dispatch] = useAppContext()
 
-  return (<Component {...props} appContext={state} dispatchApp={dispatch} />)
+  return (<Component {...props} appState={state} appDispatch={dispatch} />)
 }

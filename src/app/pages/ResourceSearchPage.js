@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import MainTemplate from '../../common/templates/MainTemplate'
 import { Header } from '../../common/components'
 import UserMenuContainer from '../modules/user/containers/UserMenuContainer'
-import ResourceListContainer from '../modules/resource/containers/ResourceListContainer'
+import ResourceSearchContainer from '../modules/resource/containers/ResourceSearchContainer'
 import sideMenuItems from '../sideMenuItems'
 import { urlUtil } from '../../common/utils'
 
-function ResourceListPage({ match, location }) {
+function ResourceSearchPage({ match, location }) {
   const { type, country, city } = match.params
   const [coordinates, setCoordinates] = React.useState(null)
 
@@ -27,7 +27,7 @@ function ResourceListPage({ match, location }) {
         </Header>
       )}
     >
-      <ResourceListContainer
+      <ResourceSearchContainer
         type={type}
         country={country}
         city={city}
@@ -36,9 +36,9 @@ function ResourceListPage({ match, location }) {
   )
 }
 
-ResourceListPage.propTypes = {
+ResourceSearchPage.propTypes = {
   match: PropTypes.shape().isRequired,
   location: PropTypes.shape().isRequired,
 }
 
-export default ResourceListPage
+export default ResourceSearchPage

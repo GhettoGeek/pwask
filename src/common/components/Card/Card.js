@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 })
 
 function EnhancedCard({
-  id, title, description, images, getDirectionUrl,
+  id, title, description, images, addToFavorites, isFavorite, getDirectionUrl,
 }) {
   const { t } = useTranslation()
   const classes = useStyles()
@@ -77,18 +77,23 @@ function EnhancedCard({
       <CardActions>
         <IconButton
           aria-label={t('common.getDirection')}
+          title={t('common.getDirection')}
           onClick={() => { window.location.href = getDirectionUrl }}
         >
           <DirectionIcon />
         </IconButton>
         <IconButton
           aria-label={t('common.addToFavorite')}
-          onClick={() => {}}
+          title={t('common.addToFavorite')}
+          onClick={() => addToFavorites(id)}
         >
-          <FavoriteIcon />
+          <FavoriteIcon
+            color={isFavorite ? 'primary' : 'inherit'}
+          />
         </IconButton>
         <IconButton
           aria-label={t('common.share')}
+          title={t('common.share')}
           onClick={showShareDialog}
         >
           <ShareIcon />
@@ -103,9 +108,11 @@ EnhancedCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.shape({
-    url: PropTypes.string,
     title: PropTypes.string,
+    url: PropTypes.string,
   })),
+  addToFavorites: PropTypes.func.isRequired,
+  isFavorite: PropTypes.bool,
   getDirectionUrl: PropTypes.string.isRequired,
 }
 
@@ -113,10 +120,11 @@ EnhancedCard.defaultProps = {
   description: '',
   images: [
     {
-      label: 'default',
-      src: '/images/placeholder.jpg',
+      title: 'default',
+      url: '/images/placeholder.jpg',
     },
   ],
+  isFavorite: false,
 }
 
 export default EnhancedCard

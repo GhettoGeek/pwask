@@ -24,5 +24,5 @@ export const useUserContext = () => React.useContext(UserContext)
 export const withUserContext = (Component) => ({ ...props }) => {
   const [state, dispatch] = useUserContext()
 
-  return (<Component {...props} userContext={state} dispatchUser={dispatch} />)
+  return (<Component {...props} userState={state} userDispatch={dispatch} />)
 }

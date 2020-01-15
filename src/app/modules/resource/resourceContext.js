@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { resourceReducer, resourceInitialState } from './resourceReducer'
 
-const ResourceContext = React.createContext(null)
+export const ResourceContext = React.createContext()
 
 export const ResourceContextProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(resourceReducer, resourceInitialState)
@@ -24,5 +24,5 @@ export const useResourceContext = () => React.useContext(ResourceContext)
 export const withResourceContext = (Component) => ({ ...props }) => {
   const [state, dispatch] = useResourceContext()
 
-  return (<Component {...props} resourceContext={state} dispatchUser={dispatch} />)
+  return (<Component {...props} resourceState={state} resourceDispatch={dispatch} />)
 }

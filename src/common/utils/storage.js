@@ -1,20 +1,20 @@
 const storage = {
-  set: (key, jsonData, expiration = 0) => {
+  set: (key, value, expiration = 0, scope = '') => {
     if (!window.localStorage || !window.JSON || !key) { return false }
 
     const record = {
-      value: JSON.stringify(jsonData),
+      value: JSON.stringify(value),
       expires: expiration !== 0 ? Date.now() + (expiration * 1000) : 0, // in milliseconds
     }
 
-    localStorage.setItem(key, JSON.stringify(record))
+    localStorage.setItem(`${key}${scope}`, JSON.stringify(record))
 
-    return jsonData
+    return value
   },
-  get: (key) => {
+  get: (key, scope = '') => {
     if (!window.localStorage || !window.JSON || !key) { return false }
 
-    const item = localStorage.getItem(key)
+    const item = localStorage.getItem(`${key}${scope}`)
 
     if (!item) { return false }
 

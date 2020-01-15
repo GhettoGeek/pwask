@@ -1,11 +1,13 @@
 import HomePage from './HomePage'
-import ResourceListPage from './ResourceListPage'
+import ResourceSearchPage from './ResourceSearchPage'
 import ResourceDetailsPage from './ResourceDetailsPage'
+import ResourceFavoritesPage from './ResourceFavoritesPage'
 import ErrorPage from './ErrorPage'
 
 export {
   HomePage,
-  ResourceListPage,
+  ResourceSearchPage,
   ResourceDetailsPage,
+  ResourceFavoritesPage,
   ErrorPage,
 }

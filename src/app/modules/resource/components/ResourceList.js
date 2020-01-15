@@ -1,11 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
+import { useTranslation } from 'react-i18next'
 import appConfig from '../../../appConfig'
-import { Card } from '../../../../common/components'
+import { Card, Loader, Typography } from '../../../../common/components'
 
-function ResourceList({ items }) {
-  return (
+function ResourceList({
+  items, loading, isFavorite, addToFavorites,
+}) {
+  const { t } = useTranslation()
+
+  if (loading) { return <Loader /> }
+
+  return items.length > 0 ? (
     <Grid
       container
       justify="center"
@@ -25,12 +32,14 @@ function ResourceList({ items }) {
             title={name}
             images={images}
             description={description}
+            isFavorite={isFavorite(id)}
+            addToFavorites={addToFavorites}
             getDirectionUrl={`${appConfig.google.getDirectionUrl}${address}`}
           />
         </Grid>
       ))}
     </Grid>
-  )
+  ) : <Typography variant="body1">{t('common.noResults')}</Typography>
 }
 
 ResourceList.propTypes = {
@@ -43,7 +52,15 @@ ResourceList.propTypes = {
     })),
     description: PropTypes.string,
     address: PropTypes.string,
-  })).isRequired,
+  })),
+  loading: PropTypes.bool,
+  isFavorite: PropTypes.func.isRequired,
+  addToFavorites: PropTypes.func.isRequired,
+}
+
+ResourceList.defaultProps = {
+  items: [],
+  loading: true,
 }
 
 export default ResourceList

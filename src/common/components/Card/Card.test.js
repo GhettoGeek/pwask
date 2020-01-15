@@ -7,7 +7,12 @@ describe('Card', () => {
   it('renders correctly the component', () => {
     const wrapper = shallow(
       <MemoryRouter initialEntries={['/']} initialIndex={0}>
-        <Card title="Title" />
+        <Card
+          id={1}
+          title="Title"
+          addToFavorites={() => {}}
+          getDirectionUrl="https://www.google.com/maps?daddr=address"
+        />
       </MemoryRouter>,
     )
 

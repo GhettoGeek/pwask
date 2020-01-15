@@ -3,7 +3,7 @@ import { urlUtil } from '../../../common/utils'
 
 export function getResourceById(id) {
   const query = gql`
-    query resourceDetails {
+    query resource {
       resource(where: {
         id: { _eq: "${id}" }
       }) {
@@ -11,7 +11,28 @@ export function getResourceById(id) {
         name
         description
         address
-        images {
+        images(limit: 3) {
+          url
+          title
+        }
+      }
+    }
+  `
+
+  return query
+}
+
+export function getResourcesByIds(ids) {
+  const query = gql`
+    query resources {
+      resource(where: {
+        id: { _in: [${ids}] }
+      }) {
+        id
+        name
+        description
+        address
+        images(limit: 3) {
           url
           title
         }
@@ -24,7 +45,7 @@ export function getResourceById(id) {
 
 export function getResourcesByType(type, country, city) {
   const query = gql`
-    query resourceList {
+    query resources {
       resource(where: {
         type: { _eq: "${urlUtil.capitalize(type)}" },
         country: { _eq: "${urlUtil.capitalize(country)}" },
@@ -34,7 +55,7 @@ export function getResourcesByType(type, country, city) {
         name
         description
         address
-        images {
+        images(limit: 3) {
           url
           title
         }

@@ -5,7 +5,7 @@ import {
   Header, Hero,
 } from '../../common/components'
 import UserMenuContainer from '../modules/user/containers/UserMenuContainer'
-import ResourceListContainer from '../modules/resource/containers/ResourceListContainer'
+import ResourceTopContainer from '../modules/resource/containers/ResourceTopContainer'
 import ResourceSearchBoxContainer from '../modules/resource/containers/ResourceSearchBoxContainer'
 import config from '../appConfig'
 import sideMenuItems from '../sideMenuItems'
@@ -28,7 +28,7 @@ function HomePage() {
           </Hero>
         </Grid>
         <Grid item xs={12}>
-          <ResourceListContainer />
+          <ResourceTopContainer />
         </Grid>
       </Grid>
     </MainTemplate>

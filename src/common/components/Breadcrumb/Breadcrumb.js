@@ -7,13 +7,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import Link from '../Link'
 import Typography from '../Typography'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   icon: {
-    marginRight: theme.spacing(1),
+    display: 'flex',
     width: 20,
     height: 20,
   },
-}))
+})
 
 const BreadCrumb = ({ location }) => {
   const classes = useStyles()

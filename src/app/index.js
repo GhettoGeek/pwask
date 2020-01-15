@@ -7,10 +7,12 @@ import { ModalProvider } from 'react-modal-hook'
 import appConfig from './appConfig'
 import { AppContextProvider } from './appContext'
 import { AuthContextProvider } from './modules/auth'
+import { ResourceContextProvider } from './modules/resource'
 import {
   HomePage,
-  ResourceListPage,
+  ResourceSearchPage,
   ResourceDetailsPage,
+  ResourceFavoritesPage,
   ErrorPage,
 } from './pages'
 
@@ -38,20 +40,23 @@ function App() {
         onRedirectCallback={onRedirectCallback}
       >
         <AppContextProvider>
-          <ApolloProvider client={client}>
-            <SnackbarProvider maxSnack={3}>
-              <ModalProvider>
-                <BrowserRouter>
-                  <Switch>
-                    <Route path="/" component={HomePage} exact />
-                    <Route path="/:type/:country/:city" component={ResourceListPage} exact />
-                    <Route path="/resource/:id" component={ResourceDetailsPage} exact />
-                    <Route path="*" component={ErrorPage} />
-                  </Switch>
-                </BrowserRouter>
-              </ModalProvider>
-            </SnackbarProvider>
-          </ApolloProvider>
+          <ResourceContextProvider>
+            <ApolloProvider client={client}>
+              <SnackbarProvider maxSnack={3}>
+                <ModalProvider>
+                  <BrowserRouter>
+                    <Switch>
+                      <Route path="/" component={HomePage} exact />
+                      <Route path="/:type/:country/:city" component={ResourceSearchPage} exact />
+                      <Route path="/resource/:id" component={ResourceDetailsPage} exact />
+                      <Route path="/favorites" component={ResourceFavoritesPage} exact />
+                      <Route path="*" component={ErrorPage} />
+                    </Switch>
+                  </BrowserRouter>
+                </ModalProvider>
+              </SnackbarProvider>
+            </ApolloProvider>
+          </ResourceContextProvider>
         </AppContextProvider>
       </AuthContextProvider>
     </Suspense>
