@@ -33,6 +33,7 @@ yarn dev
 
 Start the Hasura GraphQL
 ```
+docker-compose up -d
 cd hasura
 hasura console
 ```
