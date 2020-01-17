@@ -65,21 +65,36 @@ Serve builded static files
 yarn serve
 ```
 
-Export the Hasura GraphQL schema
+Export Hasura GraphQL schema
 ```
 sudo npm install -g apollo
 apollo schema:download --endpoint https://my-graphql-engine.com/v1/graphql
 ```
 
-Export data as SQL
+Export Hasura data
 ```
-curl -L https://cli.hasura.io/install.sh | bash
-hasura microservice port-forward postgres -n hasura --local-port 6432
-pg_dump -U admin hasuradb --host=localhost --port=6432 > backup.sql
+docker-compose exec postgres pg_dumpall -c -U postgres > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
 ```
 
-Import schema, data and create Hasura configuration in one command
+Export PostgreSQL data from Heroku
 ```
-sudo npm install -g json2graphql
-json2graphql https://<app-name>.herokuapp.com --db=./path/to/db.json 
+heroku pg:backups:capture
+heroku pg:backups:download
+```
+
+Restore to local database
+```
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -U myuser -d mydb latest.dump
+```
+
+Create migrations with Hasura
+```
+curl -L https://cli.hasura.io/install.sh | bash
+hasura migrate create "init" --from-server
+hasura migrate apply --version "<version>" --skip-execution
+```
+
+Apply the migrations on another instance of the GraphQL engine
+```
+hasura migrate apply --endpoint http://another-graphql-instance.herokuapp.com
 ```
