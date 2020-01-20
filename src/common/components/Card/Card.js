@@ -4,34 +4,47 @@ import { useTranslation } from 'react-i18next'
 import { useModal } from 'react-modal-hook'
 import { makeStyles } from '@material-ui/core/styles'
 import {
-  Card, CardActions, CardContent, CardMedia, IconButton,
+  Card, CardActions, CardContent, CardMedia, IconButton, Collapse,
 } from '@material-ui/core'
 import {
   Favorite as FavoriteIcon,
   Share as ShareIcon,
   Directions as DirectionIcon,
+  ExpandMore as ExpandMoreIcon,
 } from '@material-ui/icons'
 import SwipeableViews from 'react-swipeable-views'
+import clsx from 'clsx'
 import Typography from '../Typography'
 import Pagination from '../Pagination'
 import Link from '../Link'
 import Dialog from '../Dialog'
 import ShareButtons from '../ShareButtons'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   images: {
     position: 'relative',
   },
   media: {
     height: 140,
   },
-})
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+}))
 
 function EnhancedCard({
-  id, title, description, images, addToFavorites, isFavorite, getDirectionUrl,
+  id, title, shortDescription, longDescription, images, addToFavorites, isFavorite, getDirectionUrl,
 }) {
   const { t } = useTranslation()
   const classes = useStyles()
+  const [expanded, setExpanded] = React.useState(false)
   const [currentIndex, setCurrentIndex] = React.useState(0)
   const handleChangeIndex = (value) => setCurrentIndex(value)
   const [showShareDialog, closeShareDialog] = useModal(({ in: open = true }) => (
@@ -69,8 +82,8 @@ function EnhancedCard({
             {title}
           </Typography>
         </Link>
-        <Typography variant="body1">
-          {description.substring(0, 250)}
+        <Typography>
+          {shortDescription.substring(0, 250)}
           ...
         </Typography>
       </CardContent>
@@ -98,7 +111,22 @@ function EnhancedCard({
         >
           <ShareIcon />
         </IconButton>
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={() => setExpanded(!expanded)}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
       </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <div dangerouslySetInnerHTML={{ __html: longDescription }} />
+        </CardContent>
+      </Collapse>
     </Card>
   )
 }
@@ -106,7 +134,8 @@ function EnhancedCard({
 EnhancedCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  shortDescription: PropTypes.string,
+  longDescription: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     url: PropTypes.string,
@@ -117,7 +146,8 @@ EnhancedCard.propTypes = {
 }
 
 EnhancedCard.defaultProps = {
-  description: '',
+  shortDescription: '',
+  longDescription: '',
   images: [
     {
       title: 'default',

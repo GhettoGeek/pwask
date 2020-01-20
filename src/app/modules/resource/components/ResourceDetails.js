@@ -37,7 +37,7 @@ function ResourceDetails({ data, loading }) {
     )
   }
 
-  return <Typography variant="body1">{t('common.noResults')}</Typography>
+  return <Typography>{t('common.noResults')}</Typography>
 }
 
 ResourceDetails.propTypes = {

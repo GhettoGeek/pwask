@@ -27,7 +27,7 @@ const BreadCrumb = ({ location }) => {
       {
         crumbs.map((item, index) => {
           if (crumbs.length === index + 1) {
-            return <Typography variant="body1" key={index}>{item}</Typography>
+            return <Typography key={index}>{item}</Typography>
           }
 
           const link = crumbs.slice(0, index + 1).join('/')

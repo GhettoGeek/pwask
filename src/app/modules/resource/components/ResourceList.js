@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
@@ -16,14 +17,14 @@ function ResourceList({
     <Grid
       container
       justify="center"
-      alignItems="center"
       spacing={2}
     >
       {items.map(({
         id,
         name,
         images,
-        description,
+        short_description,
+        long_description,
         address,
       }) => (
         <Grid item key={id} xs={12} sm={4}>
@@ -31,7 +32,8 @@ function ResourceList({
             id={id}
             title={name}
             images={images}
-            description={description}
+            shortDescription={short_description}
+            longDescription={long_description}
             isFavorite={isFavorite(id)}
             addToFavorites={addToFavorites}
             getDirectionUrl={`${appConfig.google.getDirectionUrl}${address}`}
@@ -39,7 +41,7 @@ function ResourceList({
         </Grid>
       ))}
     </Grid>
-  ) : <Typography variant="body1">{t('common.noResults')}</Typography>
+  ) : <Typography>{t('common.noResults')}</Typography>
 }
 
 ResourceList.propTypes = {

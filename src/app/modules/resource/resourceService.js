@@ -9,7 +9,8 @@ export function getResourceById(id) {
       }) {
         id
         name
-        description
+        short_description
+        long_description
         address
         images(limit: 3) {
           url
@@ -30,7 +31,8 @@ export function getResourcesByIds(ids) {
       }) {
         id
         name
-        description
+        short_description
+        long_description
         address
         images(limit: 3) {
           url
@@ -53,7 +55,8 @@ export function getResourcesByType(type, country, city) {
       }) {
         id
         name
-        description
+        short_description
+        long_description
         address
         images(limit: 3) {
           url

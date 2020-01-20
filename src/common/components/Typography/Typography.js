@@ -16,7 +16,7 @@ EnhancedTypography.propTypes = {
 }
 
 EnhancedTypography.defaultProps = {
-  variant: 'h1',
+  variant: 'body1',
   children: '',
 }
 

@@ -24,7 +24,12 @@ function Hero({ backgroundImage, children }) {
 
   return (
     <div className={classes.root} style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <Typography className={classes.title} color="primary" align="center">
+      <Typography
+        variant="h1"
+        className={classes.title}
+        color="primary"
+        align="center"
+      >
         {t('hero.title')}
       </Typography>
       {children}
